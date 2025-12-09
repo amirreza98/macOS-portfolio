@@ -71,3 +71,5 @@ export default defineConfig([
   },
 ])
 ```
+
+![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/amirreza98/macOS-portfolio?utm_source=oss&utm_medium=github&utm_campaign=amirreza98%2FmacOS-portfolio&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
