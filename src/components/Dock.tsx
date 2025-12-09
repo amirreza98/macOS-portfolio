@@ -1,11 +1,15 @@
 import { useRef } from "react"
 import { Tooltip } from "react-tooltip"
-import { gsap } from "gsap"
+import gsap from "gsap"
 
 import {dockApps} from "#constants/index.js"
 import { useGSAP } from "@gsap/react"
+import useWindowStore from "#store/window.js"
+import { error } from "console"
 
 function Dock() {
+    const { openWindow, closeWindow, windows } = useWindowStore()
+
     const dockRef = useRef(null)
 
     useGSAP(() => {
@@ -56,8 +60,21 @@ function Dock() {
     }, [])
 
     const toggleApp = (app) => {
-        // Implement app toggling logic here
-    }
+        if (!app.canOpen) return;
+
+        const win = windows[app.id];
+
+        if (!win) {
+            openWindow(app.id);
+            return;
+        }
+
+        if (win.isOpen) {
+            closeWindow(app.id);
+        } else {
+            openWindow(app.id);
+        }
+    };
 
   return (
     <section id="dock">
@@ -65,21 +82,21 @@ function Dock() {
             {dockApps.map(({ id, name, icon, canOpen,}) => (
                 <div key={id ?? name} className="relative flex justify-center">
                     <button
-                    type="button"
-                    className="dock-icon"
-                    aria-label={name}
-                    data-tooltip-id="dock-tooltip"
-                    data-tooltip-content={name}
-                    data-tooltip-delay-show="150"
-                    disabled={!canOpen}
-                    onClick={() => toggleApp({id, canOpen})}
-                    >
-                        <img
-                        src={`/images/${icon}`}
-                        alt={name}
-                        loading="lazy"
-                        className={canOpen ? "" : "opacity-60"}
-                        />
+                        type="button"
+                        className="dock-icon"
+                        aria-label={name}
+                        data-tooltip-id="dock-tooltip"
+                        data-tooltip-content={name}
+                        data-tooltip-delay-show="150"
+                        disabled={!canOpen}
+                        onClick={() => toggleApp({id, canOpen})}
+                        >
+                            <img
+                            src={`/images/${icon}`}
+                            alt={name}
+                            loading="lazy"
+                            className={canOpen ? "" : "opacity-60"}
+                            />
                     </button>
                 </div>
             ))}
