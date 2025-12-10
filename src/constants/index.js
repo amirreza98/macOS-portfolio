@@ -70,14 +70,14 @@ const dockApps = [
     id: "chatgpt",
     name: "ChatGPT", // was "ChatGPT"
     icon: "chatgpt.png",
-    canOpen: false,
+    canOpen: true,
   },
-    {
-    id: "instagram",
-    name: "Instagram", // was "Terminal"
-    icon: "instagram.png",
-    canOpen: false,
-  },
+  //   {
+  //   id: "instagram",
+  //   name: "Instagram", // was "Terminal"
+  //   icon: "instagram.png",
+  //   canOpen: true,
+  // },
   {
     id: "trash",
     name: "Archive", // was "Trash"
