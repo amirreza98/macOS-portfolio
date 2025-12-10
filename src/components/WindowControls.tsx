@@ -4,9 +4,9 @@ const WindowControls = ( { target } ) => {
     const { closeWindow } = useWindowStore();
 
   return (
-    <div id= "widnow-controls">
+    <div id= "window-controls">
       <div className="close" onClick={()=>closeWindow(target)} />
-      <div className="minimize"/>
+      <div className="minimize" onClick={()=>closeWindow(target)}/>
       <div className="maximize"/>
     </div>
   );

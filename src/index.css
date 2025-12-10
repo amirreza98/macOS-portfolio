@@ -102,15 +102,15 @@ body {
     @apply flex gap-2;
 
     .close {
-      @apply size-3.5 rounded-full bg-[#ff6157] cursor-pointer;
+      @apply size-3.5 rounded-full bg-[#ff6157] cursor-pointer relative after:content-[''] hover:after:content-['×'] after:-translate-y-1/6 after:text-gray-900 after:flex after:items-center after:justify-center;
     }
 
     .minimize {
-      @apply size-3.5 rounded-full bg-[#ffc030];
+      @apply size-3.5 rounded-full bg-[#ffc030] cursor-pointer relative after:content-[''] hover:after:content-['-'] after:-translate-y-1/6 after:text-gray-900 after:flex after:items-center after:justify-center;
     }
-
+   
     .maximize {
-      @apply size-3.5 rounded-full bg-[#2acb42];
+      @apply size-3.5 rounded-full bg-[#2acb42] cursor-pointer relative after:content-[''] hover:after:content-['►◀'] after:translate-y-1/3 after:rotate-45 after:text-[6px] after:text-gray-900 after:flex after:items-center after:justify-center;
     }
   }
 
@@ -121,13 +121,6 @@ body {
   #safari {
     @apply w-4xl absolute top-40 left-2/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
-    .search {
-      @apply flex items-center gap-3 w-2/3 bg-white border border-gray-300 rounded-lg px-3 py-2;
-
-      input {
-        @apply placeholder:text-gray-400;
-      }
-    }
 
     .blog {
       @apply bg-white p-10 max-w-3xl mx-auto;
@@ -393,4 +386,42 @@ body {
       }
     }
   }
+}
+
+.mini-browser h1 {
+  font-size: 1.8rem;
+  margin: 1rem 0;
+}
+
+.mini-browser h2 {
+  font-size: 1.5rem;
+  margin: .8rem 0;
+}
+
+.mini-browser h3 {
+  font-size: 1.3rem;
+  margin: .6rem 0;
+}
+
+.mini-browser p,
+.mini-browser div {
+  line-height: 1.6;
+  margin-bottom: .75rem;
+}
+
+.mini-browser a {
+  color: #0b66ff;
+  text-decoration: underline;
+}
+
+.mini-browser ul,
+.mini-browser ol {
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+
+.mini-browser img {
+  max-width: 100%;
+  margin: 1rem 0;
+  border-radius: 8px;
 }
