@@ -66,18 +66,18 @@ const dockApps = [
     icon: "terminal.png",
     canOpen: true,
   },
-  //   {
-  //   id: "chatgpt",
-  //   name: "ChatGPT", // was "ChatGPT"
-  //   icon: "chatgpt.png",
-  //   canOpen: false,
-  // },
-  //   {
-  //   id: "instagram",
-  //   name: "Instagram", // was "Terminal"
-  //   icon: "instagram.png",
-  //   canOpen: false,
-  // },
+    {
+    id: "chatgpt",
+    name: "ChatGPT", // was "ChatGPT"
+    icon: "chatgpt.png",
+    canOpen: false,
+  },
+    {
+    id: "instagram",
+    name: "Instagram", // was "Terminal"
+    icon: "instagram.png",
+    canOpen: false,
+  },
   {
     id: "trash",
     name: "Archive", // was "Trash"
@@ -513,6 +513,8 @@ const WINDOW_CONFIG = {
   terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+  instagram: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+  chatgpt: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 };
 
 export { INITIAL_Z_INDEX, WINDOW_CONFIG };
