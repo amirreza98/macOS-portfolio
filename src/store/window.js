@@ -9,28 +9,39 @@ const useWindowStore = create(
 
         openWindow: (windowKey, data = null) => set((state) => {
             const win = state.windows[windowKey];
-            // Defensive: if the windowKey is invalid, do nothing
             if (!win) return;
+
+            const maxZ = Math.max(
+                ...Object.values(state.windows).map(w => w.zIndex)
+            );
+
             win.isOpen = true;
-            win.zIndex = state.nextIndex;
+            win.zIndex = maxZ + 1; 
             win.data = data ?? win.data;
-            state.nextIndex ++;
+
+            state.nextIndex = win.zIndex + 1; 
         }),
+
         closeWindow: (windowKey) => 
             set((state) => {
             const win = state.windows[windowKey];
-
-            // Defensive: if the windowKey is invalid, do nothing
+            
             if (!win) return;
             win.isOpen = false;
             win.zIndex = INITIAL_Z_INDEX;
             win.data = null;
         }),
-        focusWindow: (windowKey) => 
+        focusWindow: (windowKey) =>
             set((state) => {
-            const win = state.windows[windowKey];
-            win.zIndex = state.nextZIndex ++;
-        }),
+                const win = state.windows[windowKey];
+
+                const maxZ = Math.max(
+                    ...Object.values(state.windows).map(w => w.zIndex)
+                );
+
+                win.zIndex = maxZ + 1;
+                state.nextIndex = win.zIndex + 1;
+            }),
     })),
 );
 
