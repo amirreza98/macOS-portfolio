@@ -20,10 +20,14 @@ const Text = () => {
             <div className="p-5 space-y-6 bg-white">
                 {image ? (
                     <div className="w-full">
-                        
+                        <img src={image} alt={name} className="w-full h-auto rounded" />
                     </div>
                 )}
             </div>
         </>
     )
 }
+
+const TextWindow = WindowWrapper(Text, "text");
+
+export default TextWindow;
