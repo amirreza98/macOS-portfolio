@@ -34,7 +34,7 @@ function ChatGPT() {
         <WindowControls target="chatgpt" />
         <h2>Chat GPT</h2>
       </div>
-      <div className="rounded-b-lg bg-white" style={{border:"1px solid #ddd"}}>
+      <div className="rounded-b-lg bg-white shadow-2xl drop-shadow-2xl" style={{border:"1px solid #ddd"}}>
         <div className="min-h-120 max-h-160 mb-2 overflow-y-scroll w-3xl break-words overflow-x-hidden flex flex-col justify-end">
           {messages.map((m,i)=>(
             <div className={`relative rounded-xl m-4 p-4
@@ -51,9 +51,9 @@ function ChatGPT() {
             value={input}
             onChange={e => setInput(e.target.value)}
             placeholder="type your prompt.."
-            className="w-full p-2 max-h-28 overflow-y-scroll text-black break-words resize-none" // 1️⃣ غیر قابل resize
+            className="w-full p-2 max-h-28 overflow-y-scroll text-black break-words resize-none" 
             onKeyDown={(e) => {
-              if (e.key === "Enter" && !e.shiftKey) { // 2️⃣ فقط Enter بدون Shift
+              if (e.key === "Enter" && !e.shiftKey) {
                 e.preventDefault(); // جلوی خط جدید
                 handleSend(e);
               }

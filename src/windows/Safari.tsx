@@ -13,13 +13,11 @@ function Safari() {
 
     if (!text) return;
 
-    // اگر کاربر آدرس ویکی داد، همونو استفاده کن
     if (text.startsWith("https://www.wikipedia.org")) {
       setUrl(text);
       return;
     }
 
-    // وگرنه تبدیلش کن به آدرس ویکی
     const wikiURL = `https://www.wikipedia.org/wiki/${encodeURIComponent(text)}`;
     setUrl(wikiURL);
   }
@@ -29,7 +27,7 @@ function Safari() {
 
       <div id="window-header">
         <WindowControls target="safari" />
-        <h2>Tech Stack</h2>
+        <h2>Safari</h2>
       </div>
 
       <iframe

@@ -2,7 +2,7 @@ import gsap from "gsap";
 import { Draggable } from "gsap/Draggable";
 
 import {Navbar, Welcome, Dock} from "#components";
-import {Terminal, Safari, Instagram, ChatGPT}from "#windows";
+import {Terminal, Safari, Instagram, ChatGPT, Resume, Finder}from "#windows";
 
 gsap.registerPlugin(Draggable);
 
@@ -15,8 +15,11 @@ function App() {
 
       <Terminal/>
       <Safari />
+      <Resume />
       <Instagram />
       <ChatGPT />
+      <Finder />
+      
     </main>
   )
 }

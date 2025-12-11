@@ -68,7 +68,7 @@ const dockApps = [
   },
     {
     id: "chatgpt",
-    name: "ChatGPT", // was "ChatGPT"
+    name: "ChatGPT",
     icon: "chatgpt.png",
     canOpen: true,
   },
