@@ -34,7 +34,7 @@ function Safari() {
         src={url}
         style={{
           width:"100%",
-          height:"85vh",
+          height:"75vh",
           border:"1px solid #ccc",
           borderRadius:"8px"
         }}
