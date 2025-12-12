@@ -3,8 +3,8 @@ import WindowWrapper from "../hoc/WindowWrapper";
 import WindowControls from "../components/WindowControls";
 
 const Instagram = () => {
-  const [input, setInput] = useState<string>("");
-  const [url, setUrl] = useState<string>("https://cispace.vercel.app");
+  // const [input, setInput] = useState<string>("");
+  const [url, _setUrl] = useState<string>("https://cispace.vercel.app");
 
   return (
     <>

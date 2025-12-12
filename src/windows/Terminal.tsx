@@ -1,7 +1,7 @@
-import { techStack } from "../constants/index.js";
+import { techStack } from "../constants/index";
 import { Check, Flag } from "lucide-react";
-import WindowWrapper from "../hoc/WindowWrapper.tsx";
-import WindowControls from "../components/WindowControls.tsx";
+import WindowWrapper from "../hoc/WindowWrapper";
+import WindowControls from "../components/WindowControls";
 
 interface TechCategory {
   category: string;

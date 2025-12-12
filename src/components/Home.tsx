@@ -2,8 +2,8 @@ import { locations } from "../constants"
 import clsx from "clsx"
 import { useGSAP } from "@gsap/react"
 import { Draggable } from "gsap/all"
-import useLocationStore from "../store/location.ts"
-import useWindowStore from "../store/window.ts"
+import useLocationStore from "../store/location"
+import useWindowStore from "../store/window"
 
 interface Project {
     id: number

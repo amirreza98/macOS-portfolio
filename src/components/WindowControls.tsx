@@ -1,4 +1,4 @@
-import useWindowStore from "../store/window.ts";
+import useWindowStore from "../store/window";
 
 interface WindowControlsProps {
   target: string;

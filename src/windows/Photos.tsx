@@ -1,6 +1,6 @@
 import { Mail, Search } from "lucide-react";
-import WindowWrapper from "../hoc/WindowWrapper.tsx";
-import WindowControls from "../components/WindowControls.tsx";
+import WindowWrapper from "../hoc/WindowWrapper";
+import WindowControls from "../components/WindowControls";
 import { gallery, photosLinks } from "../constants";
 import useWindowStore from "../store/window";
 

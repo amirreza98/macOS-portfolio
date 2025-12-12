@@ -1,6 +1,6 @@
-import WindowControls from "../components/WindowControls.tsx";
+import WindowControls from "../components/WindowControls";
 import WindowWrapper from "../hoc/WindowWrapper";
-import useLocationStore from "../store/location.ts";
+import useLocationStore from "../store/location";
 import { locations } from "../constants";
 import useWindowStore from "../store/window";
 

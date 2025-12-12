@@ -3,23 +3,23 @@ import WindowWrapper from "../hoc/WindowWrapper";
 import WindowControls from "../components/WindowControls";
 
 const Safari = () => {
-  const [input, setInput] = useState<string>("");
-  const [url, setUrl] = useState<string>("https://www.wikipedia.org");
+  // const [input, _setInput] = useState<string>("");
+  const [url, _setUrl] = useState<string>("https://www.wikipedia.org");
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
+  // function handleSubmit(e: React.FormEvent) {
+  //   e.preventDefault();
 
-    const text = input.trim();
-    if (!text) return;
+  //   const text = input.trim();
+  //   if (!text) return;
 
-    if (text.startsWith("https://www.wikipedia.org")) {
-      setUrl(text);
-      return;
-    }
+  //   if (text.startsWith("https://www.wikipedia.org")) {
+  //     setUrl(text);
+  //     return;
+  //   }
 
-    const wikiURL = `https://www.wikipedia.org/wiki/${encodeURIComponent(text)}`;
-    setUrl(wikiURL);
-  }
+  //   const wikiURL = `https://www.wikipedia.org/wiki/${encodeURIComponent(text)}`;
+  //   setUrl(wikiURL);
+  // }
 
   return (
     <>
