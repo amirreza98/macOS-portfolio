@@ -1,15 +1,15 @@
 import dayjs from "dayjs"
-import { navLinks, navIcons } from "#constants"
-import useWindowStore from "#store/window.js"
+import { navLinks, navIcons } from "../constants"
+import useWindowStore from "../store/window.js"
 
 interface NavLink {
-  id: string
+  id: number
   name: string
   type: string
 }
 
 interface NavIcon {
-  id: string
+  id: number
   img: string
 }
 

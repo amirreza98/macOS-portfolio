@@ -1,17 +1,17 @@
 import { Mail, Search } from "lucide-react";
-import WindowWrapper from "#hoc/WindowWrapper.tsx";
-import WindowControls from "#components/WindowControls.tsx";
-import { gallery, photosLinks } from "#constants";
-import useWindowStore from "#store/window";
+import WindowWrapper from "../hoc/WindowWrapper.tsx";
+import WindowControls from "../components/WindowControls.tsx";
+import { gallery, photosLinks } from "../constants";
+import useWindowStore from "../store/window";
 
 interface PhotoLink {
-  id: string;
+  id: number;
   icon: string;
   title: string;
 }
 
 interface GalleryItem {
-  id: string;
+  id: number;
   img: string;
 }
 

@@ -1,8 +1,8 @@
-import { ComponentType, useLayoutEffect, useRef } from "react";
-import useWindowStore from "#store/window.js";
+import { type ComponentType, useLayoutEffect, useRef } from "react";
+import useWindowStore from "../store/window"
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { Draggable } from "gsap/Draggable";
+import { Draggable } from "gsap/all";
 
 type WindowWrapperHOC = <P extends object>(
   Component: ComponentType<P>,

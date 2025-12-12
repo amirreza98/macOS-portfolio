@@ -1,9 +1,8 @@
-import WindowWrapper from "#hoc/WindowWrapper.tsx";
-import WindowControls from "#components/WindowControls.tsx";
-import { socials } from "#constants/index.js";
-
+import WindowWrapper from "../hoc/WindowWrapper.tsx";
+import WindowControls from "../components/WindowControls.tsx";
+import { socials } from "../constants/index.ts";
 interface Social {
-  id: string;
+  id: number;
   bg: string;
   link: string;
   icon: string;

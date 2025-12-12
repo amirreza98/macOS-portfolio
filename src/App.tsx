@@ -1,8 +1,8 @@
 import gsap from "gsap";
-import { Draggable } from "gsap/Draggable";
+import { Draggable } from "gsap/all";
 
-import {Navbar, Welcome, Dock, Home} from "#components";
-import {Terminal, Safari, Instagram, ChatGPT, Resume, Finder, Text, Image, Contact, Photos} from "#windows";
+import {Navbar, Welcome, Dock, Home} from "./components/index.ts";
+import {Terminal, Safari, Instagram, ChatGPT, Resume, Finder, Text, Image, Contact, Photos} from "./windows/index.ts";
 
 gsap.registerPlugin(Draggable);
 

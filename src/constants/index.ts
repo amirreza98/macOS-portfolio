@@ -1,120 +1,120 @@
-const navLinks = [
-  {
-    id: 1,
-    name: "Projects",
-    type: "finder",
-  },
-  {
-    id: 3,
-    name: "Contact",
-    type: "contact",
-  },
-  {
-    id: 4,
-    name: "Resume",
-    type: "resume",
-  },
+// ------------------ TYPES ------------------
+
+export type NavLink = {
+  id: number;
+  name: string;
+  type: string;
+};
+
+export type NavIcon = {
+  id: number;
+  img: string;
+};
+
+export type DockApp = {
+  id: string;
+  name: string;
+  icon: string;
+  canOpen: boolean;
+};
+
+export type TechCategory = {
+  category: string;
+  items: string[];
+};
+
+export type Social = {
+  id: number;
+  text: string;
+  icon: string;
+  bg: string;
+  link: string;
+};
+
+export type PhotoLink = {
+  id: number;
+  icon: string;
+  title: string;
+};
+
+export type GalleryItem = {
+  id: number;
+  img: string;
+};
+
+// Finder File System Types
+export type FinderFile = {
+  id: number;
+  name: string;
+  icon: string;
+  kind: "file";
+  fileType: "txt" | "url" | "img" | "fig" | "pdf";
+  position?: string;
+  subtitle?: string;
+  href?: string;
+  imageUrl?: string;
+  description?: string[];
+};
+
+export type FinderFolder = {
+  id: number;
+  name: string;
+  icon: string;
+  kind: "folder";
+  type?: string;
+  position?: string;
+  windowPosition?: string;
+  children: (FinderFolder | FinderFile)[];
+};
+
+// Window types
+export type WindowInfo = {
+  isOpen: boolean;
+  zIndex: number;
+  data: any | null;
+};
+
+export type WindowConfig = Record<string, WindowInfo>;
+
+// ------------------ DATA ------------------
+
+// Nav bar links
+export const navLinks: NavLink[] = [
+  { id: 1, name: "Projects", type: "finder" },
+  { id: 3, name: "Contact", type: "contact" },
+  { id: 4, name: "Resume", type: "resume" },
 ];
 
-const navIcons = [
-  {
-    id: 1,
-    img: "/icons/wifi.svg",
-  },
-  {
-    id: 2,
-    img: "/icons/search.svg",
-  },
-  {
-    id: 3,
-    img: "/icons/user.svg",
-  },
-  {
-    id: 4,
-    img: "/icons/mode.svg",
-  },
+export const navIcons: NavIcon[] = [
+  { id: 1, img: "/icons/wifi.svg" },
+  { id: 2, img: "/icons/search.svg" },
+  { id: 3, img: "/icons/user.svg" },
+  { id: 4, img: "/icons/mode.svg" },
 ];
 
-const dockApps = [
-  {
-    id: "finder",
-    name: "Portfolio", // was "Finder"
-    icon: "finder.png",
-    canOpen: true,
-  },
-  {
-    id: "safari",
-    name: "Articles", // was "Safari"
-    icon: "safari.png",
-    canOpen: true,
-  },
-  {
-    id: "photos",
-    name: "Photos", // was "Photos"
-    icon: "photos.png",
-    canOpen: true,
-  },
-  {
-    id: "contact",
-    name: "Contact", // or "Get in touch"
-    icon: "contact.png",
-    canOpen: true,
-  },
-  {
-    id: "terminal",
-    name: "Skills", // was "Terminal"
-    icon: "terminal.png",
-    canOpen: true,
-  },
-    {
-    id: "chatgpt",
-    name: "ChatGPT",
-    icon: "chatgpt.png",
-    canOpen: true,
-  },
-  //   {
-  //   id: "instagram",
-  //   name: "Instagram", // was "Terminal"
-  //   icon: "instagram.png",
-  //   canOpen: true,
-  // },
-  {
-    id: "trash",
-    name: "Trash", 
-    icon: "trash.png",
-    canOpen: false,
-  },
+// Dock apps
+export const dockApps: DockApp[] = [
+  { id: "finder", name: "Portfolio", icon: "finder.png", canOpen: true },
+  { id: "safari", name: "Articles", icon: "safari.png", canOpen: true },
+  { id: "photos", name: "Photos", icon: "photos.png", canOpen: true },
+  { id: "contact", name: "Contact", icon: "contact.png", canOpen: true },
+  { id: "terminal", name: "Skills", icon: "terminal.png", canOpen: true },
+  { id: "chatgpt", name: "ChatGPT", icon: "chatgpt.png", canOpen: true },
+  { id: "trash", name: "Trash", icon: "trash.png", canOpen: false },
 ];
 
-
-const techStack = [
-  {
-    category: "Frontend",
-    items: ["React.js", "Next.js", "TypeScript"],
-  },
-  {
-    category: "Mobile",
-    items: ["React Native", "Expo"],
-  },
-  {
-    category: "Styling",
-    items: ["Tailwind CSS", "Sass", "CSS"],
-  },
-  {
-    category: "Backend",
-    items: ["Node.js", "Express", "NestJS"],
-  },
-  {
-    category: "Database",
-    items: ["MongoDB", "PostgreSQL"],
-  },
-  {
-    category: "Dev Tools",
-    items: ["Git", "GitHub", "Docker"],
-  },
+// Tech Stack
+export const techStack: TechCategory[] = [
+  { category: "Frontend", items: ["React.js", "Next.js", "TypeScript"] },
+  { category: "Mobile", items: ["React Native", "Expo"] },
+  { category: "Styling", items: ["Tailwind CSS", "Sass", "CSS"] },
+  { category: "Backend", items: ["Node.js", "Express", "NestJS"] },
+  { category: "Database", items: ["MongoDB", "PostgreSQL"] },
+  { category: "Dev Tools", items: ["Git", "GitHub", "Docker"] },
 ];
 
-const socials = [
+// Social Media Links
+export const socials: Social[] = [
   {
     id: 1,
     text: "Github",
@@ -131,78 +131,39 @@ const socials = [
   },
 ];
 
-const photosLinks = [
-  {
-    id: 1,
-    icon: "/icons/gicon1.svg",
-    title: "Library",
-  },
-  {
-    id: 2,
-    icon: "/icons/gicon2.svg",
-    title: "Memories",
-  },
-  {
-    id: 3,
-    icon: "/icons/file.svg",
-    title: "Places",
-  },
-  {
-    id: 4,
-    icon: "/icons/gicon4.svg",
-    title: "People",
-  },
-  {
-    id: 5,
-    icon: "/icons/gicon5.svg",
-    title: "Favorites",
-  },
+// Photos sidebar links
+export const photosLinks: PhotoLink[] = [
+  { id: 1, icon: "/icons/gicon1.svg", title: "Library" },
+  { id: 2, icon: "/icons/gicon2.svg", title: "Memories" },
+  { id: 3, icon: "/icons/file.svg", title: "Places" },
+  { id: 4, icon: "/icons/gicon4.svg", title: "People" },
+  { id: 5, icon: "/icons/gicon5.svg", title: "Favorites" },
 ];
 
-const gallery = [
-  {
-    id: 1,
-    img: "/images/gal1.png",
-  },
-  {
-    id: 2,
-    img: "/images/gal2.png",
-  },
-  {
-    id: 3,
-    img: "/images/gal3.png",
-  },
-  {
-    id: 4,
-    img: "/images/gal4.png",
-  },
+// Gallery
+export const gallery: GalleryItem[] = [
+  { id: 1, img: "/images/gal1.png" },
+  { id: 2, img: "/images/gal2.png" },
+  { id: 3, img: "/images/gal3.png" },
+  { id: 4, img: "/images/gal4.png" },
 ];
 
-export {
-  navLinks,
-  navIcons,
-  dockApps,
-  techStack,
-  socials,
-  photosLinks,
-  gallery,
-};
+// ------------------ FINDER LOCATIONS ------------------
 
-const WORK_LOCATION = {
+export const WORK_LOCATION: FinderFolder = {
   id: 1,
   type: "work",
   name: "Work",
   icon: "/icons/work.svg",
   kind: "folder",
   children: [
-    // ▶ Project 1
     {
       id: 5,
       name: "Nike Ecommerce Website Application",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "top-10 left-5", // icon position inside Finder
-      windowPosition: "top-[5vh] left-5", // optional: Finder window position
+      position: "top-10 left-5",
+      windowPosition: "top-[5vh] left-5",
       children: [
         {
           id: 1,
@@ -212,10 +173,8 @@ const WORK_LOCATION = {
           fileType: "txt",
           position: "top-5 left-10",
           description: [
-            "The Nike eCommerce website is a sleek and modern platform designed for shopping the latest Nike collections.",
-            "Instead of a simple online store, it delivers an immersive experience with bold visuals, interactive product displays, and smooth navigation.",
-            "Think of it like walking into a flagship Nike store—but right from your phone or laptop.",
-            "It's built with Next.js and Tailwind, ensuring fast performance, responsive design, and a clean, premium look.",
+            "The Nike eCommerce website is a sleek and modern platform built with Next.js and Tailwind.",
+            "A high-performance UI with clean responsive design.",
           ],
         },
         {
@@ -248,7 +207,7 @@ const WORK_LOCATION = {
       ],
     },
 
-    // ▶ Project 2
+    // Project 2
     {
       id: 6,
       name: "AI Resume Analyzer",
@@ -265,10 +224,8 @@ const WORK_LOCATION = {
           fileType: "txt",
           position: "top-5 right-10",
           description: [
-            "AI Resume Analyzer is a smart tool that helps you perfect your resume with instant feedback.",
-            "Instead of guessing what recruiters want, you get AI-powered insights on keywords, formatting, and overall impact.",
-            "Think of it like having a career coach—pointing out strengths, fixing weaknesses, and boosting your chances of landing interviews.",
-            "It's built with Next.js and Tailwind, so it runs fast, looks professional, and works seamlessly on any device.",
+            "AI-powered resume analyzer built with Next.js & Tailwind.",
+            "Provides instant keyword and format insights.",
           ],
         },
         {
@@ -301,7 +258,7 @@ const WORK_LOCATION = {
       ],
     },
 
-    // ▶ Project 3
+    // Project 3
     {
       id: 7,
       name: "Food Delivery App",
@@ -318,10 +275,8 @@ const WORK_LOCATION = {
           fileType: "txt",
           position: "top-5 left-10",
           description: [
-            "Our Food Delivery App is a fast and convenient way to order meals from your favorite restaurants.",
-            "Instead of making calls or waiting in line, you can browse menus, customize orders, and track deliveries in real time.",
-            "Think of it like having your favorite restaurants in your pocket—ready to deliver anytime, anywhere.",
-            "It’s built with React Native, so it works smoothly on both iOS and Android with a clean, modern design.",
+            "Cross-platform food delivery app built with React Native.",
+            "Real-time tracking, smooth UI, and clean UX.",
           ],
         },
         {
@@ -356,7 +311,7 @@ const WORK_LOCATION = {
   ],
 };
 
-const ABOUT_LOCATION = {
+export const ABOUT_LOCATION: FinderFolder = {
   id: 2,
   type: "about",
   name: "About me",
@@ -398,18 +353,17 @@ const ABOUT_LOCATION = {
       fileType: "txt",
       position: "top-60 left-5",
       subtitle: "Meet the Developer Behind the Code",
-      image: "/images/Amir.JPEG",
+      imageUrl: "/images/Amir.JPEG",
       description: [
-        "Hey! I’m Amir Reza 👋, a Full Stack who enjoys building sleek, interactive websites that actually work well.",
-        "I specialize in JavaScript, React, and Next.js, and I love making things feel smooth, fast, and just a little bit delightful.",
-        "I’m big on clean UI, good UX, and writing code that doesn’t need a search party to debug.",
-        "Outside of dev work, you'll find me tweaking layouts at 2AM, sipping overpriced coffee, or impulse-buying gadgets I absolutely convinced myself I needed 😅",
+        "Hey! I’m Amir Reza 👋, a Full Stack developer.",
+        "I specialize in React, Next.js, and clean UI/UX.",
+        "I love building smooth, fast, interactive experiences.",
       ],
     },
   ],
 };
 
-const RESUME_LOCATION = {
+export const RESUME_LOCATION: FinderFolder = {
   id: 3,
   type: "resume",
   name: "Resume",
@@ -422,13 +376,11 @@ const RESUME_LOCATION = {
       icon: "/images/pdf.png",
       kind: "file",
       fileType: "pdf",
-      // you can add `href` if you want to open a hosted resume
-      // href: "/your/resume/path.pdf",
     },
   ],
 };
 
-const TRASH_LOCATION = {
+export const TRASH_LOCATION: FinderFolder = {
   id: 4,
   type: "trash",
   name: "Trash",
@@ -463,9 +415,11 @@ export const locations = {
   trash: TRASH_LOCATION,
 };
 
-const INITIAL_Z_INDEX = 1000;
+// ------------------ WINDOWS ------------------
 
-const WINDOW_CONFIG = {
+export const INITIAL_Z_INDEX = 1000;
+
+export const WINDOW_CONFIG: WindowConfig = {
   finder: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   contact: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   resume: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
@@ -477,5 +431,3 @@ const WINDOW_CONFIG = {
   instagram: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   chatgpt: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 };
-
-export { INITIAL_Z_INDEX, WINDOW_CONFIG };

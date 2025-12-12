@@ -1,14 +1,17 @@
-import { locations } from "#constants"
+import { locations } from "../constants"
 import clsx from "clsx"
 import { useGSAP } from "@gsap/react"
-import { Draggable } from "gsap/Draggable"
-import useLocationStore from "#store/location"
-import useWindowStore from "#store/window"
+import { Draggable } from "gsap/all"
+import useLocationStore from "../store/location.ts"
+import useWindowStore from "../store/window.ts"
 
 interface Project {
-    id: string
+    id: number
     name: string
-    windowPosition?: string
+    windowPosition?: number
+    icon?: string
+    kind?: string
+    children?: any[]
     [key: string]: any
 }
 

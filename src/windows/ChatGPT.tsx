@@ -1,7 +1,7 @@
 import { useState } from "react";
 import WindowWrapper from "../hoc/WindowWrapper";
 import WindowControls from "../components/WindowControls";
-import { Typewriter } from "#components";
+import  Typewriter from "../components/Typewriter";
 
 type Message = { role: "user" | "assistant"; content: string };
 

@@ -9,6 +9,7 @@
     "skipLibCheck": true,
     "composite": true,
     "declaration": true,
+    
 
     /* Bundler mode */
     "moduleResolution": "bundler",

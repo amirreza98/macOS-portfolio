@@ -2,17 +2,15 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "#components/*": ["components/*"],
-      "#store/*": ["store/*"],
-      "#constants/*": ["constants/*"],
-      "#hoc/*": ["hoc/*"],
-      "#windows/*": ["windows/*"],
-    }
+      "#/*": ["src/*"]
+    },
+    "allowJs": true,
+    "checkJs": false
   },
   "include": ["src"],
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ],
+  ]
 }

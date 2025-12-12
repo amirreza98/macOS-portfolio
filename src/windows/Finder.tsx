@@ -1,13 +1,13 @@
-import { WindowControls } from "#components";
-import WindowWrapper from "#hoc/WindowWrapper";
-import useLocationStore from "#store/location";
-import { locations } from "#constants";
-import useWindowStore from "#store/window";
+import WindowControls from "../components/WindowControls.tsx";
+import WindowWrapper from "../hoc/WindowWrapper";
+import useLocationStore from "../store/location.ts";
+import { locations } from "../constants";
+import useWindowStore from "../store/window";
 
 import clsx from "clsx";
 
 interface LocationItem {
-  id: string;
+  id: number;
   name: string;
   kind?: string;
   fileType?: string;
