@@ -3,5 +3,6 @@ import Welcome from "./Welcome"
 import Dock from "./Dock"
 import WindowControls from "./WindowControls"
 import Typewriter from "./Typewriter"
+import Home from "./Home"
 
-export {Navbar, Welcome, Dock, WindowControls, Typewriter}
+export {Navbar, Welcome, Dock, WindowControls, Typewriter, Home}
