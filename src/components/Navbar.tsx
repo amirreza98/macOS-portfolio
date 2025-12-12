@@ -1,9 +1,22 @@
 import dayjs from "dayjs"
-import {navLinks, navIcons} from "#constants"
+import { navLinks, navIcons } from "#constants"
 import useWindowStore from "#store/window.js"
 
+interface NavLink {
+  id: string
+  name: string
+  type: string
+}
+
+interface NavIcon {
+  id: string
+  img: string
+}
+
 export default function Navbar() {
-const { openWindow } = useWindowStore()
+  const { openWindow } = useWindowStore() as {
+    openWindow: (id: string) => void
+  }
 
   return (
     <nav>
@@ -11,25 +24,28 @@ const { openWindow } = useWindowStore()
         <img src="/images/logo.svg" alt="Logo" />
         <p>Azemati's portfolio</p>
 
-        <ul> 
-            {
-            navLinks.map(({ id, name, type })=>(
-                <li key={id} onClick={() => openWindow(type)}>
-                    <p>{name}</p>
-                </li>
-            ))
-            }
+        <ul>
+          {navLinks.map(({ id, name, type }: NavLink) => (
+            <li key={id} onClick={() => openWindow(type)}>
+              <p>{name}</p>
+            </li>
+          ))}
         </ul>
       </div>
+
       <div>
         <ul>
-            {navIcons.map(({id, img})=>(
-                <li key={id}>
-                    <img src={img}
-                    className="icon-hover" alt={`icon-${id}`} />
-                </li>
-            ))}
+          {navIcons.map(({ id, img }: NavIcon) => (
+            <li key={id}>
+              <img
+                src={img}
+                className="icon-hover"
+                alt={`icon-${id}`}
+              />
+            </li>
+          ))}
         </ul>
+
         <time>{dayjs().format("ddd MMM D   h:mm A")}</time>
       </div>
     </nav>

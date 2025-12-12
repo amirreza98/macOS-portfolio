@@ -1,12 +1,18 @@
 import { useState, useEffect } from "react";
-export default function Typewriter({ text }) {
+
+interface TypewriterProps {
+  text: string;
+}
+
+export default function Typewriter({ text }: TypewriterProps) {
   const [displayedText, setDisplayedText] = useState("");
 
   useEffect(() => {
-    setDisplayedText(""); 
+    setDisplayedText("");
     let i = 0;
+
     const interval = setInterval(() => {
-      if (i < text.length -1) {
+      if (i < text.length - 1) {
         setDisplayedText((prev) => prev + (text[i] === " " ? "\u00A0" : text[i]));
         i++;
       } else {
@@ -16,7 +22,6 @@ export default function Typewriter({ text }) {
 
     return () => clearInterval(interval);
   }, [text]);
-
 
   return <span>{displayedText}</span>;
 }

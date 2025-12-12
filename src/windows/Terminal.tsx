@@ -1,9 +1,14 @@
-import { techStack } from "#constants/index.js"
-import { Check, Flag } from "lucide-react"
-import WindowWrapper from "#hoc/WindowWrapper.tsx"
-import WindowControls from "#components/WindowControls.tsx"
+import { techStack } from "#constants/index.js";
+import { Check, Flag } from "lucide-react";
+import WindowWrapper from "#hoc/WindowWrapper.tsx";
+import WindowControls from "#components/WindowControls.tsx";
 
-function Terminal() {
+interface TechCategory {
+  category: string;
+  items: string[];
+}
+
+const Terminal = () => {
   return (
     <>
       <div id="window-header">
@@ -16,13 +21,14 @@ function Terminal() {
           <span className="font-bold">@Amir Reza %</span>
           show tech stack
         </p>
+
         <div className="label">
           <p className="w-32">Category</p>
           <p>Technology</p>
         </div>
 
         <ul className="content">
-          {techStack.map(({ category, items }) => (
+          {(techStack as TechCategory[]).map(({ category, items }) => (
             <li key={category} className="flex items-center">
               <Check className="check" size={20} />
               <h3>{category}</h3>
@@ -51,9 +57,9 @@ function Terminal() {
         </div>
       </div>
     </>
-  )
+  );
 };
 
-const TerminalWindow = WindowWrapper(Terminal, 'terminal')
+const TerminalWindow = WindowWrapper(Terminal, "terminal");
 
 export default TerminalWindow;

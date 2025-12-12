@@ -82,7 +82,7 @@ const dockApps = [
     id: "trash",
     name: "Trash", 
     icon: "trash.png",
-    canOpen: true,
+    canOpen: false,
   },
 ];
 

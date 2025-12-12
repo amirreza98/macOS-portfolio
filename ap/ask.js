@@ -16,7 +16,7 @@ app.post("/ask", async (req, res) => {
 
   try {
     const completion = await groq.chat.completions.create({
-      model: "llama-3.1-8b-instant",   // مدل رایگان
+      model: "llama-3.1-8b-instant",
       messages: [
         { role: "system", content: `You are a portfolio assistant for Amir Reza, a graduated MEng Technology Management student in Berlin with degree of 1.9 and a background of Full Stack Engineer specializing in React, TypeScript, Node.js and Python with 5+ years of experience building scalable, production-grade applications. Delivered high-impact features across systems handling 5K+ daily sensor records, 500+ concurrent connections, and multi-tenant platforms. Strong focus on clean architecture, API design, performance improvements, and real-world product delivery.. 
         Answer all questions only about Amir Reza's skills, projects, education, and experience. 

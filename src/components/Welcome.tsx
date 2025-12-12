@@ -1,14 +1,20 @@
-
 import { useRef } from "react";
+import type { JSX } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 const FONT_WEIGHTS = {
   subtitle: { min: 100, max: 400, default: 100 },
   title: { min: 400, max: 900, default: 400 },
-};
+} as const;
 
-const renderText = (text, className, baseWeight = 400) =>
+type TextType = keyof typeof FONT_WEIGHTS;
+
+const renderText = (
+  text: string,
+  className: string,
+  baseWeight: number = 400
+): JSX.Element[] =>
   [...text].map((char, index) => (
     <span
       key={index}
@@ -21,13 +27,16 @@ const renderText = (text, className, baseWeight = 400) =>
     </span>
   ));
 
-const setupTextHoverEffect = (container, type) => {
+const setupTextHoverEffect = (
+  container: HTMLElement | null,
+  type: TextType
+): (() => void) => {
   if (!container) return () => {};
 
-  const letters = container.querySelectorAll("span");
+  const letters = container.querySelectorAll<HTMLSpanElement>("span");
   const { min, max, default: baseWeight } = FONT_WEIGHTS[type];
 
-  const animateLetter = (letter, weight) => {
+  const animateLetter = (letter: HTMLSpanElement, weight: number) => {
     gsap.to(letter, {
       duration: 0.3,
       ease: "power2.out",
@@ -37,7 +46,7 @@ const setupTextHoverEffect = (container, type) => {
     });
   };
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: MouseEvent) => {
     const { left } = container.getBoundingClientRect();
     const mouseX = e.clientX - left;
 
@@ -64,8 +73,8 @@ const setupTextHoverEffect = (container, type) => {
 };
 
 const Welcome = () => {
-  const titleRef = useRef(null);
-  const subtitleRef = useRef(null);
+  const titleRef = useRef<HTMLHeadingElement | null>(null);
+  const subtitleRef = useRef<HTMLParagraphElement | null>(null);
 
   useGSAP(() => {
     const titleCleanup = setupTextHoverEffect(titleRef.current, "title");
@@ -88,11 +97,7 @@ const Welcome = () => {
       </p>
 
       <h1 ref={titleRef} className="mt-7 text-6xl font-georama">
-        {renderText(
-          "portfolio",
-          "",
-          400
-        )}
+        {renderText("portfolio", "", 400)}
       </h1>
     </section>
   );

@@ -1,27 +1,41 @@
-import { Mail, Search } from "lucide-react"
-import WindowWrapper from "#hoc/WindowWrapper.tsx"
-import WindowControls from "#components/WindowControls.tsx"
+import { Mail, Search } from "lucide-react";
+import WindowWrapper from "#hoc/WindowWrapper.tsx";
+import WindowControls from "#components/WindowControls.tsx";
 import { gallery, photosLinks } from "#constants";
 import useWindowStore from "#store/window";
 
-function Photos() {
-  const { openWindow } = useWindowStore()
+interface PhotoLink {
+  id: string;
+  icon: string;
+  title: string;
+}
+
+interface GalleryItem {
+  id: string;
+  img: string;
+}
+
+const Photos = () => {
+  const { openWindow } = useWindowStore() as {
+    openWindow: (id: string, data?: any) => void;
+  };
+
   return (
     <>
       <div id="window-header">
         <WindowControls target="photos" />
-        
+
         <div className="w-full flex justify-end items-center gap-3 text-gray-500">
           <Mail className="icon" />
           <Search className="icon" />
         </div>
       </div>
 
-      <div className="flex w-full">
+      <div className="flex w-full h-100 sticky">
         <div className="sidebar">
           <h2>Photos</h2>
           <ul>
-            {photosLinks.map(({ id, icon, title }) => (
+            {photosLinks.map(({ id, icon, title }: PhotoLink) => (
               <li key={id}>
                 <img src={icon} alt={title} />
                 <p>{title}</p>
@@ -30,20 +44,22 @@ function Photos() {
           </ul>
         </div>
 
-        <div className="gallery">
+        <div className="gallery h-100 overflow-y-scroll">
           <ul>
-            {gallery.map(({ id, img }) => (
-              <li key={id}
+            {gallery.map(({ id, img }: GalleryItem) => (
+              <li
+                key={id}
                 onClick={() =>
-                 openWindow("imgfile", {
-                  id,
-                  name: "Gallery image",
-                  icon: "/images/image.png",
-                  kind: "file",
-                  fileType: "img",
-                  imageUrl: img,
-                 }) 
-                }>
+                  openWindow("imgfile", {
+                    id,
+                    name: "Gallery image",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    imageUrl: img,
+                  })
+                }
+              >
                 <img src={img} alt={`gallery-${id}`} />
               </li>
             ))}
@@ -52,7 +68,7 @@ function Photos() {
       </div>
     </>
   );
-}
+};
 
 const PhotosWindow = WindowWrapper(Photos, "photos");
 

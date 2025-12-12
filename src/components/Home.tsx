@@ -5,34 +5,49 @@ import { Draggable } from "gsap/Draggable"
 import useLocationStore from "#store/location"
 import useWindowStore from "#store/window"
 
-const projects = locations.work?.children ?? []
+interface Project {
+    id: string
+    name: string
+    windowPosition?: string
+    [key: string]: any
+}
+
+const projects: Project[] = (locations.work?.children ?? []) as Project[]
 
 function Home() {
-    const { setActiveLocation } = useLocationStore()
-    const { openWindow } = useWindowStore()
+    const { setActiveLocation } = useLocationStore() as {
+        setActiveLocation: (project: Project) => void
+    }
 
-    const handleOpenProjectFinder = (project) => {
+    const { openWindow } = useWindowStore() as {
+        openWindow: (id: string) => void
+    }
+
+    const handleOpenProjectFinder = (project: Project) => {
         setActiveLocation(project)
         openWindow("finder")
     }
-    useGSAP(() =>{
+
+    useGSAP(() => {
         Draggable.create(".folder")
     }, [])
 
-  return (
-    <section id="home">
-        <ul>
-            {projects.map((project) => (
-                <li key={project.is} 
-                    className={clsx("group folder", project.windowPosition)} 
-                    onClick={() => handleOpenProjectFinder(project)}>
-                    <img src="/images/folder.png" alt={project.name} />
-                    <p>{project.name}</p>
-                </li>
-            ))}
-        </ul>
-    </section>
-  )
+    return (
+        <section id="home">
+            <ul>
+                {projects.map((project) => (
+                    <li
+                        key={project.id ?? project.name}
+                        className={clsx("group folder", project.windowPosition)}
+                        onClick={() => handleOpenProjectFinder(project)}
+                    >
+                        <img src="/images/folder.png" alt={project.name} />
+                        <p>{project.name}</p>
+                    </li>
+                ))}
+            </ul>
+        </section>
+    )
 }
 
 export default Home
