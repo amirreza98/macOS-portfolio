@@ -25,11 +25,12 @@ function ChatGPT() {
     setInput("");
 
     try {
-      const res = await fetch("http://localhost:3001/ask", {
+      const res = await fetch("https://my-api.onrender.com/ask", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: input }),
+        body: JSON.stringify({ question: input })
       });
+
       const data = await res.json();
 
       setMessages((prev) => [...prev, userMessage, { role: "assistant", content: data.answer }]);
