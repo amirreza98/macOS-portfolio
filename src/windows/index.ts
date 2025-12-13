@@ -8,5 +8,6 @@ import Text from "./Text"
 import Image from "./ImageWindow"
 import Contact from "./Contact"
 import Photos from "./Photos";
+import Trash from "./Trash"
 
-export {Terminal, Safari, Instagram, ChatGPT, Resume, Finder, Text, Image, Contact, Photos};
+export {Terminal, Safari, Instagram, ChatGPT, Resume, Finder, Text, Image, Contact, Photos, Trash};

@@ -100,7 +100,7 @@ export const dockApps: DockApp[] = [
   { id: "contact", name: "Contact", icon: "contact.png", canOpen: true },
   { id: "terminal", name: "Skills", icon: "terminal.png", canOpen: true },
   { id: "chatgpt", name: "ChatGPT", icon: "chatgpt.png", canOpen: true },
-  { id: "trash", name: "Trash", icon: "trash.png", canOpen: false },
+  { id: "trash", name: "Trash", icon: "trash.png", canOpen: true },
 ];
 
 // Tech Stack
@@ -430,4 +430,5 @@ export const WINDOW_CONFIG: WindowConfig = {
   imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   instagram: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   chatgpt: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+  trash: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 };

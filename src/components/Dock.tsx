@@ -5,6 +5,8 @@ import gsap from "gsap"
 import { dockApps } from "../constants"
 import { useGSAP } from "@gsap/react"
 import useWindowStore from "../store/window"
+import useLocationStore from "../store/location"
+import { locations } from "../constants"
 
 interface DockApp {
     id: string
@@ -22,6 +24,10 @@ function Dock() {
         openWindow: (id: string) => void
         closeWindow: (id: string) => void
         windows: Record<string, WindowState | undefined>
+    }
+
+    const { setActiveLocation } = useLocationStore() as {
+        setActiveLocation: (loc: any) => void
     }
 
     const dockRef = useRef<HTMLDivElement | null>(null)
@@ -77,6 +83,13 @@ function Dock() {
 
     const toggleApp = (app: Pick<DockApp, "id" | "canOpen">) => {
         if (!app.canOpen) return
+
+        // special case: open finder and set the active location when clicking Trash
+        if (app.id === "trash") {
+            setActiveLocation(locations.trash as any)
+            openWindow("finder")
+            return
+        }
 
         const win = windows[app.id]
 
