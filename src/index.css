@@ -66,6 +66,10 @@ body {
     @apply p-1 hover:bg-gray-200 rounded hover:cursor-default;
   }
 
+  .icon-hover {
+    @apply p-1 hover:bg-gray-200 rounded hover:cursor-default inline-flex items-center justify-center;
+  }
+
   #welcome {
     @apply text-gray-200 flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none max-sm:h-screen max-sm:w-full max-sm:px-10;
 
@@ -86,7 +90,7 @@ body {
     }
 
     .tooltip {
-      @apply !py-1 !px-3 !w-fit !text-center !text-xs !rounded-md !bg-blue-200 !text-blue-900 !shadow-2xl;
+      @apply py-1! px-3! w-fit! text-center! text-xs! rounded-md! bg-blue-200! text-blue-900! shadow-2xl!;
     }
 
     .dock-icon {
@@ -300,7 +304,7 @@ body {
   }
 
   #finder {
-    @apply absolute w-3xl left-40 top-20 shadow-2xl drop-shadow-2xl overflow-hidden rounded-xl;
+    @apply absolute w-3xl bg-white left-40 top-20 shadow-2xl drop-shadow-2xl overflow-hidden rounded-xl;
 
     .sidebar {
       @apply w-48 bg-gray-50 border-r border-gray-200 flex flex-col p-5 space-y-3;
@@ -387,3 +391,58 @@ body {
     }
   }
 }
+
+/* Theme variants: add high-specificity overrides to change neutral classes in dark mode */
+.theme-dark nav { background-color: rgba(20,20,20,0.55) !important; }
+.theme-dark nav p, .theme-dark nav time { color: #ddd !important; }
+.theme-dark #window-header { background-color: #141414 !important; color: #ddd !important; border-color: #2b2b2b !important }
+.theme-dark .bg-white { background-color: rgb(59,61,66) !important }
+.theme-dark .text-black { color: #ddd !important }
+.theme-dark .bg-gray-50 { background-color: #0a0a0a !important }
+.theme-dark .border-gray-200 { border-color: #333 !important }
+.theme-dark .text-gray-400 { color: #aaa !important }
+.theme-dark .text-gray-500 { color: #9aa !important }
+.theme-dark .text-gray-700 { color: #ddd !important }
+.theme-dark .text-gray-800 { color: #e6e6e6 !important }
+.theme-dark .shadow-2xl { box-shadow: 0 5px 30px rgba(0,0,0,0.5) !important }
+
+.theme-light nav { background-color: rgba(255,255,255,0.55) !important }
+
+.icon-hover img { width: 1rem; height: 1rem; }
+
+.popover-lit {
+  padding: 0.5rem; border-radius: 0.375rem; box-shadow: 0 10px 25px rgba(0,0,0,0.12); background: rgba(255,255,255,0.98); font-size: 0.875rem;
+}
+
+.theme-dark .popover-lit { background: #111; color: #ddd; box-shadow: 0 12px 30px rgba(0,0,0,0.5) !important }
+
+/* Deeper dark overrides for window-level elements */
+.theme-dark #finder,
+.theme-dark #finder .content,
+.theme-dark #finder .sidebar,
+.theme-dark #safari,
+.theme-dark #safari .blog,
+.theme-dark #terminal,
+.theme-dark #photos,
+.theme-dark #photos .sidebar,
+.theme-dark #photos .gallery,
+.theme-dark #resume,
+.theme-dark #txtfile,
+.theme-dark #imgfile,
+.theme-dark #contact {
+  background-color: #0b0b0b !important;
+  color: #ddd !important;
+  border-color: #222 !important;
+}
+
+/* Specific overrides for image backgrounds */
+.theme-dark #imgfile .preview { background-color: #0f0f0f !important }
+.theme-dark #photos .gallery li img { border-color: transparent !important }
+
+/* Window header variants */
+.theme-dark #window-header { background-color: #0d0d0d !important; color: #ddd !important }
+
+/* Make links and interactive controls readable in dark */
+.theme-dark a, .theme-dark button { color: #ddd !important }
+
+

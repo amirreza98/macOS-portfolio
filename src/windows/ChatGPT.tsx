@@ -82,7 +82,7 @@ function ChatGPT() {
                 handleSend(e);
               }
             }}
-            disabled={tokensUsed >= MAX_TOKENS} // غیرفعال کردن بعد از 3 توکن
+            disabled={tokensUsed >= MAX_TOKENS}
           />
           <button type="submit" className="bg-white p-2 rounded-4xl" disabled={tokensUsed >= MAX_TOKENS}>
             Send

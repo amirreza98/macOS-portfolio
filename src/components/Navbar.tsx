@@ -1,6 +1,8 @@
 import dayjs from "dayjs"
 import { navLinks, navIcons } from "../constants"
 import useWindowStore from "../store/window"
+import IconPopover from "./IconPopover"
+import ThemeSelector from "./ThemeSelector"
 
 interface NavLink {
   id: number
@@ -37,11 +39,30 @@ export default function Navbar() {
         <ul>
           {navIcons.map(({ id, img }: NavIcon) => (
             <li key={id}>
-              <img
-                src={img}
-                className="icon-hover"
-                alt={`icon-${id}`}
-              />
+              {img.includes("mode") ? (
+                <IconPopover iconPath={img} label={`nav-icon-${id}`}>
+                  <ThemeSelector />
+                </IconPopover>
+              ) : img.includes("wifi") ? (
+                <IconPopover iconPath={img} label={`nav-icon-${id}`}>
+                  <div className="p-2 text-sm">
+                    <p className="font-semibold">Wi-Fi</p>
+                    <p className="text-gray-500">Connected</p>
+                  </div>
+                </IconPopover>
+              ) : img.includes("search") ? (
+                <IconPopover iconPath={img} label={`nav-icon-${id}`}>
+                  <div className="p-2">
+                    <input className="px-3 py-2 border rounded w-full" placeholder="Search..." />
+                  </div>
+                </IconPopover>
+              ) : (
+                <IconPopover iconPath={img} label={`nav-icon-${id}`}>
+                  <div className="p-2">
+                    <p className="text-sm">Profile</p>
+                  </div>
+                </IconPopover>
+              )}
             </li>
           ))}
         </ul>
