@@ -159,7 +159,7 @@ export const WORK_LOCATION: FinderFolder = {
   children: [
     {
       id: 5,
-      name: "Nike Ecommerce Website Application",
+      name: "SolarSense Application",
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-10 left-5",
@@ -173,8 +173,7 @@ export const WORK_LOCATION: FinderFolder = {
           fileType: "txt",
           position: "top-5 left-10",
           description: [
-            "The Nike eCommerce website is a sleek and modern platform built with Next.js and Tailwind.",
-            "A high-performance UI with clean responsive design.",
+            "Realtime microgrid dashboard monitoring and fault detection (Modbus/MQTT, React).",
           ],
         },
         {
@@ -210,7 +209,7 @@ export const WORK_LOCATION: FinderFolder = {
     // Project 2
     {
       id: 6,
-      name: "AI Resume Analyzer",
+      name: "CISpace Platform",
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-52 right-80",
@@ -218,14 +217,13 @@ export const WORK_LOCATION: FinderFolder = {
       children: [
         {
           id: 1,
-          name: "AI Resume Analyzer Project.txt",
+          name: "CISpace Project.txt",
           icon: "/images/txt.png",
           kind: "file",
           fileType: "txt",
           position: "top-5 right-10",
           description: [
-            "AI-powered resume analyzer built with Next.js & Tailwind.",
-            "Provides instant keyword and format insights.",
+            "Seat/room booking platform with admin dashboard — React + Python API.",
           ],
         },
         {
@@ -261,7 +259,7 @@ export const WORK_LOCATION: FinderFolder = {
     // Project 3
     {
       id: 7,
-      name: "Food Delivery App",
+      name: "twindigital Platform",
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-10 left-80",
@@ -269,14 +267,209 @@ export const WORK_LOCATION: FinderFolder = {
       children: [
         {
           id: 1,
-          name: "Food Delivery App Project.txt",
+          name: "twindigital Project.txt",
           icon: "/images/txt.png",
           kind: "file",
           fileType: "txt",
           position: "top-5 left-10",
           description: [
-            "Cross-platform food delivery app built with React Native.",
-            "Real-time tracking, smooth UI, and clean UX.",
+            "Digital twin fashion platform, a 3D model with real-time color & pattern customization.",
+          ],
+        },
+        {
+          id: 2,
+          name: "food-delivery-app.com",
+          icon: "/images/safari.png",
+          kind: "file",
+          fileType: "url",
+          href: "https://youtu.be/LKrX390fJMw?si=cExkuVhf2DTV9G2-",
+          position: "top-10 right-20",
+        },
+        {
+          id: 4,
+          name: "food-delivery-app.png",
+          icon: "/images/image.png",
+          kind: "file",
+          fileType: "img",
+          position: "top-52 right-80",
+          imageUrl: "/images/project-3.png",
+        },
+        {
+          id: 5,
+          name: "Design.fig",
+          icon: "/images/plain.png",
+          kind: "file",
+          fileType: "fig",
+          href: "https://google.com",
+          position: "top-60 right-20",
+        },
+      ],
+    },
+        // Project 4
+    {
+      id: 8,
+      name: "realtor Platform",
+      icon: "/images/folder.png",
+      kind: "folder",
+      position: "top-10 left-80",
+      windowPosition: "top-[33vh] left-7",
+      children: [
+        {
+          id: 1,
+          name: "realtor Project.txt",
+          icon: "/images/txt.png",
+          kind: "file",
+          fileType: "txt",
+          position: "top-5 left-10",
+          description: [
+            "Real estate listing platform (React, Node.js).",
+          ],
+        },
+        {
+          id: 2,
+          name: "food-delivery-app.com",
+          icon: "/images/safari.png",
+          kind: "file",
+          fileType: "url",
+          href: "https://youtu.be/LKrX390fJMw?si=cExkuVhf2DTV9G2-",
+          position: "top-10 right-20",
+        },
+        {
+          id: 4,
+          name: "food-delivery-app.png",
+          icon: "/images/image.png",
+          kind: "file",
+          fileType: "img",
+          position: "top-52 right-80",
+          imageUrl: "/images/project-3.png",
+        },
+        {
+          id: 5,
+          name: "Design.fig",
+          icon: "/images/plain.png",
+          kind: "file",
+          fileType: "fig",
+          href: "https://google.com",
+          position: "top-60 right-20",
+        },
+      ],
+    },
+        // Project 5
+    {
+      id: 9,
+      name: "old-portfolio website",
+      icon: "/images/folder.png",
+      kind: "folder",
+      position: "top-10 left-80",
+      windowPosition: "top-[33vh] left-7",
+      children: [
+        {
+          id: 1,
+          name: "old-portfolio Project.txt",
+          icon: "/images/txt.png",
+          kind: "file",
+          fileType: "txt",
+          position: "top-5 left-10",
+          description: [
+            "My old portfolio website (Vanilla JS, CSS).",
+          ],
+        },
+        {
+          id: 2,
+          name: "food-delivery-app.com",
+          icon: "/images/safari.png",
+          kind: "file",
+          fileType: "url",
+          href: "https://youtu.be/LKrX390fJMw?si=cExkuVhf2DTV9G2-",
+          position: "top-10 right-20",
+        },
+        {
+          id: 4,
+          name: "food-delivery-app.png",
+          icon: "/images/image.png",
+          kind: "file",
+          fileType: "img",
+          position: "top-52 right-80",
+          imageUrl: "/images/project-3.png",
+        },
+        {
+          id: 5,
+          name: "Design.fig",
+          icon: "/images/plain.png",
+          kind: "file",
+          fileType: "fig",
+          href: "https://google.com",
+          position: "top-60 right-20",
+        },
+      ],
+    },
+        // Project 7
+    {
+      id: 10,
+      name: "OpenMemory Platform",
+      icon: "/images/folder.png",
+      kind: "folder",
+      position: "top-10 left-80",
+      windowPosition: "top-[33vh] left-7",
+      children: [
+        {
+          id: 1,
+          name: "twindigital Project.txt",
+          icon: "/images/txt.png",
+          kind: "file",
+          fileType: "txt",
+          position: "top-5 left-10",
+          description: [
+            "platform for sharing memories and photos.",
+          ],
+        },
+        {
+          id: 2,
+          name: "food-delivery-app.com",
+          icon: "/images/safari.png",
+          kind: "file",
+          fileType: "url",
+          href: "https://youtu.be/LKrX390fJMw?si=cExkuVhf2DTV9G2-",
+          position: "top-10 right-20",
+        },
+        {
+          id: 4,
+          name: "food-delivery-app.png",
+          icon: "/images/image.png",
+          kind: "file",
+          fileType: "img",
+          position: "top-52 right-80",
+          imageUrl: "/images/project-3.png",
+        },
+        {
+          id: 5,
+          name: "Design.fig",
+          icon: "/images/plain.png",
+          kind: "file",
+          fileType: "fig",
+          href: "https://google.com",
+          position: "top-60 right-20",
+        },
+      ],
+    },
+            // Project 8
+    {
+      id: 11,
+      name: "MemoryGame Platform",
+      icon: "/images/folder.png",
+      kind: "folder",
+      position: "top-10 left-80",
+      windowPosition: "top-[33vh] left-7",
+      children: [
+        {
+          id: 1,
+          name: "MemoryGame Project.txt",
+          icon: "/images/txt.png",
+          kind: "file",
+          fileType: "txt",
+          position: "top-5 left-10",
+          description: [
+            "Classic memory card game (HTML, CSS, JS).",
           ],
         },
         {
