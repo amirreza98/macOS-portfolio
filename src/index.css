@@ -405,6 +405,15 @@ body {
 .theme-dark .text-gray-700 { color: #ddd !important }
 .theme-dark .text-gray-800 { color: #e6e6e6 !important }
 .theme-dark .shadow-2xl { box-shadow: 0 5px 30px rgba(0,0,0,0.5) !important }
+.theme-dark .sidebar {
+      .active {
+          color: #1e40af;
+        }
+
+        .not-active {
+          color: #ddd;
+        }
+      }
 
 .theme-light nav { background-color: rgba(255,255,255,0.55) !important }
 
@@ -412,9 +421,29 @@ body {
 
 .popover-lit {
   padding: 0.5rem; border-radius: 0.375rem; box-shadow: 0 10px 25px rgba(0,0,0,0.12); background: rgba(255,255,255,0.98); font-size: 0.875rem;
+  /* Ensure readable default text color in light mode */
+  color: #111;
 }
 
-.theme-dark .popover-lit { background: #111; color: #ddd; box-shadow: 0 12px 30px rgba(0,0,0,0.5) !important }
+/* Force children to inherit the popover text color so nested elements
+  (including components with their own color classes) remain readable. */
+.popover-lit * { color: inherit !important }
+
+/* When an option is `selected` (see ThemeSelector), keep its text readable
+  and adjust selected background in dark mode for sufficient contrast. */
+.popover-lit .selected { color: inherit !important }
+
+
+.theme-dark .popover-lit {
+  background: #0b0b0b; /* slightly darker than page for separation */
+  color: oklch(63.045% 0.20059 257.366); /* higher contrast on dark background */
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5) !important;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+/* Dark-mode tweaks for `selected` background so it reads on dark popover */
+.theme-dark .popover-lit .selected { background-color: rgba(255,255,255,0.06) !important }
+.theme-dark .popover-lit .selected { color: inherit !important }
 
 /* Deeper dark overrides for window-level elements */
 .theme-dark #finder,

@@ -14,7 +14,9 @@ export default function ThemeSelector() {
           <button
             key={c}
             onClick={() => setMode(c)}
-            className={`text-sm px-3 py-2 text-left rounded ${mode === c ? "bg-blue-100 text-blue-700" : "hover:bg-gray-50"}`}
+            // Use a dedicated `selected` class so we can control colors
+            // in theme variants via CSS and ensure accessibility.
+            className={`text-sm px-3 py-2 text-left rounded ${mode === c ? "selected bg-blue-100" : "hover:bg-gray-50"}`}
           >
             {c[0].toUpperCase() + c.slice(1)}
           </button>

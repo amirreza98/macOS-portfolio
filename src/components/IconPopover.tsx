@@ -11,7 +11,7 @@ export default function IconPopover({ iconPath, children, label }: IconPopoverPr
   const [isOpen, setIsOpen] = useState(false);
   const timer = useRef<number | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [position, setPosition] = useState<{ top: number; left: number } | null>(null);
+  const [position, setPosition] = useState<{ top: number; right: number } | null>(null);
 
   const open = () => {
     if (timer.current) window.clearTimeout(timer.current);
@@ -19,14 +19,14 @@ export default function IconPopover({ iconPath, children, label }: IconPopoverPr
     // compute position
     if (containerRef.current) {
       const rect = containerRef.current.getBoundingClientRect();
-      const left = rect.right - 8; // align to right edge
+      const right = window.innerWidth - rect.left;
       const top = rect.bottom + 6;
-      setPosition({ top, left });
+      setPosition({ top, right });
     }
   };
 
   const close = () => {
-    timer.current = window.setTimeout(() => setIsOpen(false), 150);
+    timer.current = window.setTimeout(() => setIsOpen(false), 120);
   };
 
   useEffect(() => {
@@ -44,14 +44,14 @@ export default function IconPopover({ iconPath, children, label }: IconPopoverPr
       {isOpen && position &&
         createPortal(
           <div
-            style={{ position: "fixed", top: position.top, left: position.left, zIndex: 999999 }}
+            style={{ position: "fixed", top: position.top, right: position.right, zIndex: 999999 }}
             className="popover-lit"
             onMouseEnter={open}
             onMouseLeave={close}
           >
             {children}
           </div>,
-          document.body,
+          (document.querySelector("main") as Element) || document.body,
         )}
     </div>
   );
