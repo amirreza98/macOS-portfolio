@@ -38,7 +38,7 @@ function Home() {
     return (
         <section id="home">
             <ul>
-                {projects.map((project) => (
+                {projects.slice(0, 3).map((project) => (
                     <li
                         key={project.id ?? project.name}
                         className={clsx("group folder", project.windowPosition)}

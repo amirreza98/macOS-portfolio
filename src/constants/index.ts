@@ -305,7 +305,7 @@ export const WORK_LOCATION: FinderFolder = {
         },
       ],
     },
-        // Project 4
+    // Project 4
     {
       id: 8,
       name: "realtor Platform",
@@ -354,7 +354,7 @@ export const WORK_LOCATION: FinderFolder = {
         },
       ],
     },
-        // Project 5
+    // Project 5
     {
       id: 9,
       name: "old-portfolio website",
@@ -403,7 +403,7 @@ export const WORK_LOCATION: FinderFolder = {
         },
       ],
     },
-        // Project 7
+    // Project 6
     {
       id: 10,
       name: "OpenMemory Platform",
@@ -452,9 +452,58 @@ export const WORK_LOCATION: FinderFolder = {
         },
       ],
     },
-            // Project 8
+    // Project 7
     {
       id: 11,
+      name: "wishlist-extention",
+      icon: "/images/folder.png",
+      kind: "folder",
+      position: "top-10 left-80",
+      windowPosition: "top-[33vh] left-7",
+      children: [
+        {
+          id: 1,
+          name: "wishlist extention.txt",
+          icon: "/images/txt.png",
+          kind: "file",
+          fileType: "txt",
+          position: "top-5 left-10",
+          description: [
+            "A chrome extension for saving products from e-commerce sites to a wishlist. and viewing them later. also you can categorize them.",
+          ],
+        },
+        {
+          id: 2,
+          name: "food-delivery-app.com",
+          icon: "/images/safari.png",
+          kind: "file",
+          fileType: "url",
+          href: "https://youtu.be/LKrX390fJMw?si=cExkuVhf2DTV9G2-",
+          position: "top-10 right-20",
+        },
+        {
+          id: 4,
+          name: "food-delivery-app.png",
+          icon: "/images/image.png",
+          kind: "file",
+          fileType: "img",
+          position: "top-52 right-80",
+          imageUrl: "/images/project-3.png",
+        },
+        {
+          id: 5,
+          name: "Design.fig",
+          icon: "/images/plain.png",
+          kind: "file",
+          fileType: "fig",
+          href: "https://google.com",
+          position: "top-60 right-20",
+        },
+      ],
+    },
+    // Project 8
+    {
+      id: 12,
       name: "MemoryGame Platform",
       icon: "/images/folder.png",
       kind: "folder",
@@ -469,7 +518,56 @@ export const WORK_LOCATION: FinderFolder = {
           fileType: "txt",
           position: "top-5 left-10",
           description: [
-            "Classic memory card game (HTML, CSS, JS).",
+            "play a classic memory card game to improve your concentration and memory skills.",
+          ],
+        },
+        {
+          id: 2,
+          name: "food-delivery-app.com",
+          icon: "/images/safari.png",
+          kind: "file",
+          fileType: "url",
+          href: "https://youtu.be/LKrX390fJMw?si=cExkuVhf2DTV9G2-",
+          position: "top-10 right-20",
+        },
+        {
+          id: 4,
+          name: "food-delivery-app.png",
+          icon: "/images/image.png",
+          kind: "file",
+          fileType: "img",
+          position: "top-52 right-80",
+          imageUrl: "/images/project-3.png",
+        },
+        {
+          id: 5,
+          name: "Design.fig",
+          icon: "/images/plain.png",
+          kind: "file",
+          fileType: "fig",
+          href: "https://google.com",
+          position: "top-60 right-20",
+        },
+      ],
+    },
+    // Project 9
+    {
+      id: 13,
+      name: "architectSytileTimline Platform",
+      icon: "/images/folder.png",
+      kind: "folder",
+      position: "top-10 left-80",
+      windowPosition: "top-[33vh] left-7",
+      children: [
+        {
+          id: 1,
+          name: "MemoryGame Project.txt",
+          icon: "/images/txt.png",
+          kind: "file",
+          fileType: "txt",
+          position: "top-5 left-10",
+          description: [
+            "A timeline website for architectural styles from ancient to modern.",
           ],
         },
         {
