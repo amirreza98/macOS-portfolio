@@ -819,7 +819,7 @@ export const locations = {
 export const INITIAL_Z_INDEX = 1000;
 
 export const WINDOW_CONFIG: WindowConfig = {
-  finder: { isOpen: true, zIndex: INITIAL_Z_INDEX, data: null },
+  finder: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   contact: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   resume: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   safari: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
