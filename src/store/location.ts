@@ -1,21 +1,33 @@
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
-import { RESUME_LOCATION } from "../constants";
+import { locations } from "../constants";
 
-// This helps us track which specific file is "open" inside the PDF viewer
 interface LocationStore {
   activeLocation: any;
+  history: any[];
   setActiveLocation: (location: any) => void;
+  goBack: () => void;
 }
 
 const useLocationStore = create<LocationStore>()(
   immer((set) => ({
-    // Default to the main Resume object
-    activeLocation: RESUME_LOCATION.children[0], 
+    activeLocation: locations.work,
+    history: [],
 
     setActiveLocation: (location) =>
       set((state) => {
+        // Prevent adding same location to history
+        if (state.activeLocation.id !== location.id || state.activeLocation.name !== location.name) {
+          state.history.push(state.activeLocation);
+        }
         state.activeLocation = location;
+      }),
+
+    goBack: () =>
+      set((state) => {
+        if (state.history.length > 0) {
+          state.activeLocation = state.history.pop();
+        }
       }),
   }))
 );
