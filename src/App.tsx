@@ -3,7 +3,7 @@ import { Draggable } from "gsap/all";
 import { useEffect } from "react";
 
 import {Navbar, Welcome, Dock, Home} from "./components/index";
-import {Terminal, Safari, Instagram, ChatGPT, Resume, Finder, Text, Image, Contact, Photos} from "./windows/index";
+import {Terminal, Safari, Instagram, ChatGPT, PDF, Finder, Text, Image, Contact, Photos} from "./windows/index";
 import useThemeStore from "./store/theme";
 
 gsap.registerPlugin(Draggable);
@@ -31,7 +31,7 @@ function App() {
 
       <Terminal/>
       <Safari />
-      <Resume />
+      <PDF />
       <Instagram />
       <ChatGPT />
       <Finder />

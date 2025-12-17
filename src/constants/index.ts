@@ -52,6 +52,7 @@ export type FinderFile = {
   position?: string;
   subtitle?: string;
   href?: string;
+  path?: string;
   imageUrl?: string;
   description?: string[];
 };
@@ -62,6 +63,7 @@ export type FinderFolder = {
   icon: string;
   kind: "folder";
   type?: string;
+  path?: string;
   position?: string;
   windowPosition?: string;
   children: (FinderFolder | FinderFile)[];
@@ -164,7 +166,7 @@ export const WORK_LOCATION: FinderFolder = {
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-5 left-0",
-      windowPosition: "top-[5vh] left-0",
+      windowPosition: "top-[5vh] left-10",
       children: [
         {
           id: 1,
@@ -762,7 +764,7 @@ export const ABOUT_LOCATION: FinderFolder = {
   ],
 };
 
-export const RESUME_LOCATION: FinderFolder = {
+export const RESUME_LOCATION = {
   id: 3,
   type: "resume",
   name: "Resume",
@@ -773,8 +775,42 @@ export const RESUME_LOCATION: FinderFolder = {
       id: 1,
       name: "Resume.pdf",
       icon: "/images/pdf.png",
+      path: "/files/resume.pdf", // Ensure this exists in /public/files/
       kind: "file",
       fileType: "pdf",
+    },
+    {
+      id: 2,
+      name: "Certificates",
+      icon: "/images/folder.png",
+      kind: "folder",
+      position: "top-5 right-35",
+      children: [
+        {
+          id: 1,
+          name: "Degree.pdf",
+          icon: "/images/pdf.png",
+          path: "/files/Certificates/certificatesMasterDegree.pdf",
+          kind: "file",
+          fileType: "pdf",
+        },
+        // {
+        //   id: 2,
+        //   name: "Docker.pdf",
+        //   icon: "/images/pdf.png",
+        //   path: "/files/Certificates/Docker.pdf",
+        //   kind: "file",
+        //   fileType: "pdf",
+        // },
+        // {
+        //   id: 3,
+        //   name: "React.pdf",
+        //   icon: "/images/pdf.png",
+        //   path: "/files/Certificates/React.pdf",
+        //   kind: "file",
+        //   fileType: "pdf",
+        // },
+      ],
     },
   ],
 };

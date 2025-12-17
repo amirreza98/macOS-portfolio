@@ -1,30 +1,21 @@
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
-import { locations } from "../constants";
+import { RESUME_LOCATION } from "../constants";
 
-// نوع location را از خود locations استخراج می‌کنیم
-export type Location = (typeof locations)[keyof typeof locations];
-
-const DEFAULT_LOCATION: Location = locations.work;
-
+// This helps us track which specific file is "open" inside the PDF viewer
 interface LocationStore {
-  activeLocation: Location;
-  setActiveLocation: (location: Location) => void;
-  resetActiveLocation: () => void;
+  activeLocation: any;
+  setActiveLocation: (location: any) => void;
 }
 
 const useLocationStore = create<LocationStore>()(
   immer((set) => ({
-    activeLocation: DEFAULT_LOCATION,
+    // Default to the main Resume object
+    activeLocation: RESUME_LOCATION.children[0], 
 
-    setActiveLocation: (location: Location) =>
+    setActiveLocation: (location) =>
       set((state) => {
         state.activeLocation = location;
-      }),
-
-    resetActiveLocation: () =>
-      set((state) => {
-        state.activeLocation = DEFAULT_LOCATION;
       }),
   }))
 );
