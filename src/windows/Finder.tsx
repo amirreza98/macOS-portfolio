@@ -52,7 +52,7 @@ function Finder() {
   );
 
   return (
-    <div className="flex flex-col h-full bg-white text-gray-800">
+    <div id="finderWindow" className="flex flex-col h-full bg-white text-gray-800">
       <div id="window-header" className="flex flex-row gap-4 px-4 py-2 border-b bg-gray-50">
         <WindowControls target="finder" />
           <button 
@@ -72,26 +72,16 @@ function Finder() {
         </div>
 
         {/* Content Area */}
-        <div className="flex-1 h-100 p-4 overflow-y-auto">
+        <div className="flex-1 h-100 p-4 overflow-y-auto" >
           <ul className="grid grid-cols-4 gap-4">
             {activeLocation?.children?.map((item: any) => (
               <li
                 key={item.id}
-                className="flex flex-col items-center gap-1 p-2 rounded hover:bg-blue-50 cursor-pointer group"
+                className="flex flex-col items-center gap-1 p-2 rounded cursor-pointer group"
                 onDoubleClick={() => openItem(item)}
                 onClick={(e) => {
-                  // double click already handled by onDoubleClick; allow single click to open PDFs directly
-                  if (e.detail === 2) {
+                  e.stopPropagation();
                     openItem(item);
-                    return;
-                  }
-
-                  if (item.fileType === "pdf") {
-                    openItem(item);
-                    return;
-                  }
-
-                  // otherwise treat as selection (no-op for now)
                 }}
               >
                 <img src={item.icon} alt={item.name} className="w-12 h-12 object-contain" />
