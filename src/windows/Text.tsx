@@ -40,6 +40,6 @@ const Text = () => {
     );
 };
 
-const TextWindow = WindowWrapper(Text, "txtfile"); // ← هماهنگ با target
+const TextWindow = WindowWrapper(Text, "txtfile");
 
 export default TextWindow;

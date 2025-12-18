@@ -29,7 +29,7 @@ const useThemeStore = create<ThemeStore>((set, get) => ({
     const { mode } = get();
     const resolved = mode === "system" ? getSystemResolved() : mode;
     set({ resolved }, false);
-    const root = document.querySelector("main") || document.documentElement;
+    const root = document.documentElement; // 👈 مهم
     root.classList.remove("theme-light", "theme-dark");
     root.classList.add(`theme-${resolved}`);
   },
@@ -39,7 +39,7 @@ const useThemeStore = create<ThemeStore>((set, get) => ({
 if (typeof window !== "undefined") {
   const stored = (localStorage.getItem(THEME_KEY) as ThemeMode) || "system";
   const resolved = stored === "system" ? getSystemResolved() : stored;
-  const root = document.querySelector("main") || document.documentElement;
+  const root = document.documentElement;
   root.classList.add(`theme-${resolved}`);
 }
 
