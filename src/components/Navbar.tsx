@@ -1,6 +1,7 @@
 import dayjs from "dayjs"
-import { navLinks, navIcons } from "../constants"
+import { navLinks, navIcons, locations } from "../constants"
 import useWindowStore from "../store/window"
+import useLocationStore from "../store/location"
 import IconPopover from "./IconPopover"
 import ThemeSelector from "./ThemeSelector"
 
@@ -20,6 +21,10 @@ export default function Navbar() {
     openWindow: (id: string) => void
   }
 
+  const { setActiveLocation } = useLocationStore() as {
+    setActiveLocation: (loc: any) => void
+  }
+
   return (
     <nav>
       <div>
@@ -28,7 +33,7 @@ export default function Navbar() {
 
         <ul>
           {navLinks.map(({ id, name, type }: NavLink) => (
-            <li key={id} onClick={() => openWindow(type)}>
+            <li key={id} onClick={() => { if (type === 'resume') setActiveLocation(locations.resume as any); openWindow(type) }}>
               <p>{name}</p>
             </li>
           ))}

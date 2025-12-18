@@ -776,7 +776,6 @@ export const RESUME_LOCATION = {
       name: "Resume.pdf",
       icon: "/images/pdf.png",
       path: "/files/resume.pdf", // Ensure this exists in /public/files/
-      kind: "file",
       fileType: "pdf",
     },
     {
@@ -791,7 +790,6 @@ export const RESUME_LOCATION = {
           name: "Degree.pdf",
           icon: "/images/pdf.png",
           path: "/files/Certificates/certificatesMasterDegree.pdf",
-          kind: "file",
           fileType: "pdf",
         },
         // {

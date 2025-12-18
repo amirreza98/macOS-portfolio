@@ -11,14 +11,14 @@ function Finder() {
   const { activeLocation, setActiveLocation, history, goBack } = useLocationStore();
 
   const openItem = (item: any) => {
-    // IMPORTANT: Update store first, then open window
     if (item.fileType === "pdf") {
-      setActiveLocation(item); 
-      return openWindow("resume");
+      openWindow("resume", item.path);
+      return;
     }
-    
+
     if (item.kind === "folder") {
-      return setActiveLocation(item);
+      setActiveLocation(item);
+      openWindow("folder", item);
     }
 
     if (["fig", "url"].includes(item.fileType ?? "") && item.href) {
@@ -35,7 +35,9 @@ function Finder() {
         {items.map((item) => (
           <li
             key={item.id}
-            onClick={() => setActiveLocation(item)}
+            onClick={() => {
+              setActiveLocation(item);
+            }}
             className={clsx(
               "flex items-center gap-2 px-4 py-1 cursor-default text-sm",
               item.id === activeLocation?.id ? "bg-blue-500 text-white" : "hover:bg-gray-100"
@@ -51,18 +53,15 @@ function Finder() {
 
   return (
     <div className="flex flex-col h-full bg-white text-gray-800">
-      <div id="window-header" className="flex items-center gap-4 px-4 py-2 border-b bg-gray-50">
+      <div id="window-header" className="flex flex-row gap-4 px-4 py-2 border-b bg-gray-50">
         <WindowControls target="finder" />
-        
-        <div className="flex items-center gap-2">
           <button 
             onClick={goBack} 
             disabled={history.length === 0}
-            className="p-1 hover:bg-gray-200 rounded disabled:opacity-20"
+            className="p-1 hover:bg-gray-300 hover:shadow-2xl drop-shadow-black rounded disabled:opacity-30"
           >
             <ChevronLeft size={18} />
           </button>
-        </div>
         <h2 className="text-sm font-semibold">{activeLocation.name}</h2>
       </div>
 
@@ -73,14 +72,27 @@ function Finder() {
         </div>
 
         {/* Content Area */}
-        <div className="flex-1 p-4 overflow-y-auto">
+        <div className="flex-1 h-100 p-4 overflow-y-auto">
           <ul className="grid grid-cols-4 gap-4">
             {activeLocation?.children?.map((item: any) => (
               <li
                 key={item.id}
-                className="flex flex-col items-center gap-1 p-2 rounded hover:bg-blue-50 cursor-default group"
+                className="flex flex-col items-center gap-1 p-2 rounded hover:bg-blue-50 cursor-pointer group"
                 onDoubleClick={() => openItem(item)}
-                onClick={(e) => e.detail === 1 && console.log("selected")} 
+                onClick={(e) => {
+                  // double click already handled by onDoubleClick; allow single click to open PDFs directly
+                  if (e.detail === 2) {
+                    openItem(item);
+                    return;
+                  }
+
+                  if (item.fileType === "pdf") {
+                    openItem(item);
+                    return;
+                  }
+
+                  // otherwise treat as selection (no-op for now)
+                }}
               >
                 <img src={item.icon} alt={item.name} className="w-12 h-12 object-contain" />
                 <p className="text-xs text-center break-all line-clamp-2">{item.name}</p>
