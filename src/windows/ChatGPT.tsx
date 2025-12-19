@@ -12,18 +12,8 @@ function ChatGPT() {
   const [tokensUsed, setTokensUsed] = useState<number>(0);
   const MAX_TOKENS = 3;
 
-  async function handleSend(e: React.FormEvent | React.KeyboardEvent) {
-    e.preventDefault();
-
-    if (tokensUsed >= MAX_TOKENS) {
-      alert("You have reached the maximum of 3 tokens.");
-      return;
-    }
-
-    const userMessage: Message = { role: "user", content: input };
-    setMessages([...messages, userMessage]);
-    setTokensUsed(tokensUsed + 1);
-    setInput("");
+  const handleSend = async () => {
+    if (!input.trim()) return;
 
     try {
       const res = await fetch("/api/ask", {
@@ -31,15 +21,16 @@ function ChatGPT() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: input })
       });
-
       const data = await res.json();
+      console.log(data.answer);
 
-      setMessages((prev) => [...prev, userMessage, { role: "assistant", content: data.answer }]);
-    } catch (error) {
-      console.error(error);
-      setMessages((prev) => [...prev, { role: "assistant", content: "Error: could not get response." }]);
+      setMessages(prev => [...prev, { role: "user", content: input }, { role: "assistant", content: data.answer }]);
+      setInput("");
+    } catch (err) {
+      console.error(err);
+      setMessages(prev => [...prev, { role: "assistant", content: "Error: could not get response." }]);
     }
-  }
+  };
 
   return (
     <>
