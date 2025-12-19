@@ -862,6 +862,6 @@ export const WINDOW_CONFIG: WindowConfig = {
   txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   instagram: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  chatgpt: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+  chatgpt: { isOpen: true, zIndex: INITIAL_Z_INDEX, data: null },
   trash: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 };

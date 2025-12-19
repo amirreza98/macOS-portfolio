@@ -2,6 +2,7 @@ import { useState } from "react";
 import WindowWrapper from "../hoc/WindowWrapper";
 import WindowControls from "../components/WindowControls";
 import  Typewriter from "../components/Typewriter";
+import { ArrowRight } from 'lucide-react';
 
 type Message = { role: "user" | "assistant"; content: string };
 
@@ -25,7 +26,7 @@ function ChatGPT() {
     setInput("");
 
     try {
-      const res = await fetch("https://my-api.onrender.com/ask", {
+      const res = await fetch("/api/ask", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: input })
@@ -48,10 +49,9 @@ function ChatGPT() {
       </div>
 
       <div
-        className="rounded-b-lg bg-white shadow-2xl drop-shadow-2xl"
-        style={{ border: "1px solid #ddd" }}
+        className="flex flex-col rounded-b-lg h-170 bg-white shadow-2xl drop-shadow-2xl"
       >
-        <div className="min-h-120 max-h-160 mb-2 overflow-y-scroll w-3xl break-words overflow-x-hidden flex flex-col justify-end">
+        <div className="flex-1 min-h-0 overflow-y-auto w-3xl break-words overflow-x-hidden flex flex-col shrink justify-end">
           {messages.map((m, i) => (
             <div
               key={i}
@@ -69,31 +69,50 @@ function ChatGPT() {
 
         <form
           onSubmit={handleSend}
-          className="flex flex-row min-h-12 bg-gray-200 rounded-xl break-words m-4"
+          className="shrink-0 sticky bottom-0 bg-white/10 border-2 border-gray-400 rounded-xl mx-4 p-2 flex items-end gap-2 transition-all"
         >
           <textarea
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="type your prompt.."
-            className="w-full p-2 max-h-28 overflow-y-scroll text-black break-words resize-none"
+            rows={1}
+            className={`
+              w-full text-black resize-none outline-0 overflow-hidden
+              transition-all duration-200
+              ${input.trim() ? "mb-8 min-h-[64px]" : "mb-0 h-8"}
+            `}
+            onInput={(e) => {
+              const target = e.target as HTMLTextAreaElement;
+              target.style.height = "auto";
+              target.style.height = target.scrollHeight + "px";
+            }}
             onKeyDown={(e) => {
               if (e.key === "Enter" && !e.shiftKey) {
                 e.preventDefault();
                 handleSend(e);
+                (e.target as HTMLTextAreaElement).style.height = "";
               }
             }}
             disabled={tokensUsed >= MAX_TOKENS}
           />
-          <button type="submit" className="bg-white p-2 rounded-4xl" disabled={tokensUsed >= MAX_TOKENS}>
-            Send
+
+          <button
+            type="submit"
+            disabled={!input.trim() || tokensUsed >= MAX_TOKENS}
+            className={`
+              border-1 border-gray-400 p-2 rounded-full h-fit w-fit
+              transition-all duration-700 ease-out
+              ${input.trim()
+                ? "opacity-100 -rotate-90"
+                : "opacity-60 rotate-0 cursor-default"}
+            `}
+          >
+            <ArrowRight color="black"/>
           </button>
         </form>
-
-        {tokensUsed >= MAX_TOKENS && (
-          <p className="text-red-500 text-sm text-center mb-2">
-            You have reached the maximum of 3 tokens.
-          </p>
-        )}
+        <p className="text-sm text-center text-gray-400 my-1">
+          {`You have ${3-tokensUsed} tokens to use.`}
+        </p>
       </div>
     </>
   );
