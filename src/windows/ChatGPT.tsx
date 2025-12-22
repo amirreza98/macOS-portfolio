@@ -12,25 +12,59 @@ function ChatGPT() {
   const [tokensUsed, setTokensUsed] = useState<number>(0);
   const MAX_TOKENS = 3;
 
-  const handleSend = async () => {
-    if (!input.trim()) return;
+
+  async function handleSend(e: React.FormEvent) {
+    e.preventDefault();
+
+    if (!input.trim() || tokensUsed >= MAX_TOKENS) return;
+
+    const userMessage: Message = {
+      role: "user",
+      content: input.trim(),
+    };
+
+    
+    setMessages((prev) => [...prev, userMessage]);
+    setInput("");
 
     try {
-      const res = await fetch("/api/ask", {
+      const res = await fetch("http://localhost:3000/api/ask", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: input })
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          question: userMessage.content,
+        }),
       });
-      const data = await res.json();
-      console.log(data.answer);
 
-      setMessages(prev => [...prev, { role: "user", content: input }, { role: "assistant", content: data.answer }]);
-      setInput("");
+      if (!res.ok) {
+        throw new Error("API error");
+      }
+
+      const data = await res.json();
+
+      const aiMessage: Message = {
+        role: "assistant",
+        content: data.answer,
+      };
+
+      setMessages((prev) => [...prev, aiMessage]);
+      setTokensUsed((prev) => prev + 1);
+
     } catch (err) {
       console.error(err);
-      setMessages(prev => [...prev, { role: "assistant", content: "Error: could not get response." }]);
+
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          content: "Something went wrong. Please try again.",
+        },
+      ]);
     }
-  };
+  }
+
 
   return (
     <>
