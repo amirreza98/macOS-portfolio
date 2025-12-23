@@ -8,7 +8,7 @@ import { OpenAI } from "openai";
 
 const client = new OpenAI({
   baseURL: "https://router.huggingface.co/v1",
-  apiKey: process.env.HF_TOKEN, // مطمئن شو این توی .env هست
+  apiKey: process.env.HF_TOKEN, 
 });
 
 export async function askLLM(question) {
