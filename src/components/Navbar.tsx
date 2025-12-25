@@ -21,9 +21,6 @@ export default function Navbar() {
     openWindow: (id: string) => void
   }
 
-  const { setActiveLocation } = useLocationStore() as {
-    setActiveLocation: (loc: any) => void
-  }
 
   return (
     <nav>
