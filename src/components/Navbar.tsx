@@ -1,7 +1,6 @@
 import dayjs from "dayjs"
-import { navLinks, navIcons, locations } from "../constants"
+import { navLinks, navIcons} from "../constants"
 import useWindowStore from "../store/window"
-import useLocationStore from "../store/location"
 import IconPopover from "./IconPopover"
 import ThemeSelector from "./ThemeSelector"
 
