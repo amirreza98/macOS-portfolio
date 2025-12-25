@@ -14,7 +14,9 @@ const Resume = () => {
 
   const filePath = typeof window?.data === "string" ? window.data : "/files/resume.pdf";
   const fileName = filePath.split("/").pop() || "document.pdf";
-  const [zoom, setZoom] = useState(0.8);
+const [zoom, setZoom] = useState(0.8);
+const [pageHeight, setPageHeight] = useState<number | null>(null); 
+
 
   return (
     <>
@@ -22,21 +24,34 @@ const Resume = () => {
         <WindowControls target="resume" />
         <h2 className="flex-1">{fileName}</h2>
 
-        <button className="p-2" onClick={() => setZoom(z => Math.max(0.6, z - 0.1))}>-</button>
+        <button className="p-2" onClick={() => setZoom(z => Math.max(0.5, z - 0.1))}>-</button>
         <span>{Math.round(zoom * 100)}%</span>
         <button className="p-2" onClick={() => setZoom(z => Math.min(2, z + 0.1))}>+</button>
 
 
-        <a href="/files/resume.pdf" download>
+        <a href={filePath} download>
           <Download className="icon" />
         </a>
       </div>
 
-      <div className="h-170 w-120 overflow-scroll">
-        <Document file={filePath} className="w-full">
+      <div className="h-170 max-h-170 w-120 overflow-auto flex justify-center items-center">
+        <Document
+          file={filePath}
+          onLoadSuccess={(pdf) => {
+            pdf.getPage(1).then((page) => {
+              const viewport = page.getViewport({ scale: 1 });
+              setPageHeight(viewport.height);
+              console.log(pageHeight)
+            });
+          }}
+        >
           <Page
             pageNumber={1}
-            scale={zoom}
+            scale={
+                  pageHeight > 890
+                  ? zoom * (Math.min(1, 450 / pageHeight))
+                  : zoom
+            }
             renderTextLayer={false}
             renderAnnotationLayer={false}
           />

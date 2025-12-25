@@ -1,9 +1,9 @@
 import { locations } from "../constants"
-import clsx from "clsx"
 import { useGSAP } from "@gsap/react"
 import { Draggable } from "gsap/all"
 import useLocationStore from "../store/location"
 import useWindowStore from "../store/window"
+import clsx from "clsx"
 
 interface Project {
     id: number
@@ -14,8 +14,6 @@ interface Project {
     children?: any[]
     [key: string]: any
 }
-
-const projects: Project[] = (locations.work?.children ?? []) as Project[]
 
 function Home() {
     const { setActiveLocation } = useLocationStore() as {
@@ -35,19 +33,18 @@ function Home() {
         Draggable.create(".folder")
     }, [])
 
+    const workFolder = locations.work as Project
+
     return (
         <section id="home">
             <ul>
-                {projects.slice(0, 3).map((project) => (
-                    <li
-                        key={project.id ?? project.name}
-                        className={clsx("group folder", project.windowPosition)}
-                        onClick={() => handleOpenProjectFinder(project)}
-                    >
-                        <img src="/images/folder.png" alt={project.name} />
-                        <p>{project.name}</p>
-                    </li>
-                ))}
+                <li
+                    className={clsx("group folder", workFolder.windowPosition)}
+                    onClick={() => handleOpenProjectFinder(workFolder)}
+                >
+                    <img src="/images/folder.png" alt={workFolder.name} />
+                    <p>{workFolder.name}</p>
+                </li>
             </ul>
         </section>
     )
