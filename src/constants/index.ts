@@ -96,7 +96,7 @@ export const navIcons: NavIcon[] = [
 
 // Dock apps
 export const dockApps: DockApp[] = [
-  { id: "finder", name: "Portfolio", icon: "finder.png", canOpen: true },
+  { id: "finder", name: "Finder", icon: "finder.png", canOpen: true },
   { id: "safari", name: "Articles", icon: "safari.png", canOpen: true },
   { id: "photos", name: "Photos", icon: "photos.png", canOpen: true },
   { id: "contact", name: "Contact", icon: "contact.png", canOpen: true },
@@ -775,7 +775,7 @@ export const RESUME_LOCATION = {
       id: 1,
       name: "Resume.pdf",
       icon: "/images/pdf.png",
-      path: "/files/resume.pdf", // Ensure this exists in /public/files/
+      path: "/files/resume.pdf",
       fileType: "pdf",
     },
     {

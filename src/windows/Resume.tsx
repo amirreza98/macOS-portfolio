@@ -12,10 +12,9 @@ const Resume = () => {
     (state) => state.windows["resume"]
   );
 
-  const filePath = typeof window?.data === "string" ? window.data : "";
+  const filePath = typeof window?.data === "string" ? window.data : "/files/resume.pdf";
   const fileName = filePath.split("/").pop() || "document.pdf";
   const [zoom, setZoom] = useState(0.8);
-  console.log(filePath);
 
   return (
     <>

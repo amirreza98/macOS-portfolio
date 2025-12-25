@@ -19,7 +19,7 @@ function Contact() {
 
       <div className="p-5 space-y-5">
         <img
-          src=""
+          src="/images/Amir.JPEG"
           alt="Amir Reza"
           className="rounded-full w-20"
         />
@@ -27,6 +27,9 @@ function Contact() {
         <h3>Let's Contact</h3>
         <p>
           Got an idea? A bug to squash? Or just want talk tech? I'm in.
+        </p>
+        <p>
+          Email: <a className="text-blue-600">amirreza.azemati@gmail.com</a>
         </p>
 
         <ul>

@@ -33,7 +33,7 @@ export default function Navbar() {
 
         <ul>
           {navLinks.map(({ id, name, type }: NavLink) => (
-            <li key={id} onClick={() => { if (type === 'resume') setActiveLocation(locations.resume as any); openWindow(type) }}>
+            <li key={id} onClick={() => openWindow(type)}>
               <p>{name}</p>
             </li>
           ))}

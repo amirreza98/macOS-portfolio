@@ -29,7 +29,7 @@ const useThemeStore = create<ThemeStore>((set, get) => ({
     const { mode } = get();
     const resolved = mode === "system" ? getSystemResolved() : mode;
     set({ resolved }, false);
-    const root = document.documentElement; // 👈 مهم
+    const root = document.documentElement;
     root.classList.remove("theme-light", "theme-dark");
     root.classList.add(`theme-${resolved}`);
   },
