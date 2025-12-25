@@ -40,15 +40,14 @@ const [pageHeight, setPageHeight] = useState<number | null>(null);
           onLoadSuccess={(pdf) => {
             pdf.getPage(1).then((page) => {
               const viewport = page.getViewport({ scale: 1 });
-              setPageHeight(viewport.height);
-              console.log(pageHeight)
+              setPageHeight(viewport.height > 890 ? viewport.height : NaN);
             });
           }}
         >
           <Page
             pageNumber={1}
             scale={
-                  pageHeight > 890
+                  pageHeight
                   ? zoom * (Math.min(1, 450 / pageHeight))
                   : zoom
             }
