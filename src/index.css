@@ -128,9 +128,9 @@ body {
   }
 
   #chatgpt-window {
-  @apply window-responsive w-200 ;
+  @apply window-responsive w-[50rem] ;
   h2 { @apply font-bold text-sm text-center w-full;}
-  .chatgpt-body { @apply flex flex-col h-170 rounded-b-lg;}
+  .chatgpt-body { @apply flex flex-col h-[42.5rem] rounded-b-lg;}
   .chatgpt-messages { @apply flex-1 min-h-0 overflow-y-auto overflow-x-hidden flex flex-col justify-end break-words;}
   .chat-bubble { @apply relative rounded-xl m-4 p-4 whitespace-pre-wrap;
     &.user { @apply bg-gray-300 text-right;}
@@ -242,7 +242,7 @@ body {
 .theme-dark {
   nav { background-color: rgba(20,20,20,0.6) !important; color: #ddd !important; }
   #window-header { background-color: #141414 !important; border-color: #2b2b2b !important; }
-  .bg-white, #finder, #safari, #terminal, #photos, #finder .content, #safari, .blog, .popover-lit{
+  .bg-white, #finder, #safari, #terminal, #photos,#chatgpt-window, #finder .content, #safari, .blog, .popover-lit {
     background-color: #0b0b0b !important;
     color: #ddd !important;
   }
