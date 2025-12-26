@@ -130,7 +130,7 @@ body {
   #chatgpt-window {
   @apply window-responsive w-[50rem] ;
   h2 { @apply font-bold text-sm text-center w-full;}
-  .chatgpt-body { @apply flex flex-col h-[42.5rem] rounded-b-lg;}
+  .chatgpt-body { @apply flex flex-col h-[42.5rem] max-sm:h-[37rem] rounded-b-lg;}
   .chatgpt-messages { @apply flex-1 min-h-0 overflow-y-auto overflow-x-hidden flex flex-col justify-end break-words;}
   .chat-bubble { @apply relative rounded-xl m-4 p-4 whitespace-pre-wrap;
     &.user { @apply bg-gray-300 text-right;}
