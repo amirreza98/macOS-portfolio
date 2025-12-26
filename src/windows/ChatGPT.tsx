@@ -74,7 +74,7 @@ function ChatGPT() {
       </div>
 
       <div
-        className="flex flex-col rounded-b-lg h-170 bg-white shadow-2xl drop-shadow-2xl"
+        className="flex flex-col rounded-b-lg h-170 bg-white shadow-2xl drop-shadow-2xl max-sm:w-screen"
       >
         <div className="flex-1 min-h-0 overflow-y-auto w-3xl break-words overflow-x-hidden flex flex-col shrink justify-end">
           {messages.map((m, i) => (

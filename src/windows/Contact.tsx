@@ -17,7 +17,7 @@ function Contact() {
         <h2>Contact Me</h2>
       </div>
 
-      <div className="p-5 space-y-5">
+      <div className="p-5 space-y-5 bg-white">
         <img
           src="/images/Amir.JPEG"
           alt="Amir Reza"
