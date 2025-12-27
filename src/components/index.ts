@@ -4,5 +4,6 @@ import Dock from "./Dock"
 import WindowControls from "./WindowControls"
 import Typewriter from "./Typewriter"
 import Home from "./Home"
+import LiquidBackground from "./LiquidBackground"
 
-export {Navbar, Welcome, Dock, WindowControls, Typewriter, Home}
+export {Navbar, Welcome, Dock, WindowControls, Typewriter, Home, LiquidBackground}

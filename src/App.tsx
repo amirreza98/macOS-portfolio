@@ -2,7 +2,7 @@ import gsap from "gsap";
 import { Draggable } from "gsap/all";
 import { useEffect } from "react";
 
-import {Navbar, Welcome, Dock, Home} from "./components/index";
+import {Navbar, Welcome, Dock, Home, LiquidBackground} from "./components/index";
 import {Terminal, Safari, Instagram, ChatGPT, Resume, Finder, Text, Image, Contact, Photos} from "./windows/index";
 import useThemeStore from "./store/theme";
 
@@ -25,6 +25,7 @@ function App() {
   return (
     <main>
       <Navbar/>
+      <LiquidBackground/>
       <Welcome/>
       <Dock/>
       <Home />
