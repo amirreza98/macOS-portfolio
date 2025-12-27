@@ -245,7 +245,11 @@ body {
 
 /* --- THEME DARK OVERRIDES --- */
 .theme-dark {
-  nav { background-color: rgba(20,20,20,0.6) !important; }
+  nav { @apply bg-gray-700/30 text-gray-300; /* semi-transparent dark + light text */}
+  nav time { @apply text-gray-300 }
+  nav ul p { @apply text-gray-300 hover:text-white;}
+  nav .nav-icon ul li{ filter: brightness(0) invert(0.8);}
+
   #window-header { background-color: #141414 !important; border-color: #2b2b2b !important; }
   .bg-white, #finder, #safari, #terminal, #photos,#chatgpt-window, #finder .content, #safari, .blog, .popover-lit {
     background-color: #0b0b0b !important;

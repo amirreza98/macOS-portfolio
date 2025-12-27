@@ -36,7 +36,7 @@ export default function Navbar() {
         </ul>
       </div>
 
-      <div>
+      <div className="nav-icon">
         <ul>
           {navIcons.map(({ id, img }: NavIcon) => (
             <li key={id}>
