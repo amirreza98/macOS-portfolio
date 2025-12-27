@@ -34,7 +34,7 @@ const [pageHeight, setPageHeight] = useState<number | null>(null);
         </a>
       </div>
 
-      <div className="h-170 max-h-170 w-120 overflow-auto flex justify-center items-center">
+      <div className="h-170 bg-white rounded-b-md max-h-170 w-120 overflow-auto flex justify-center items-center">
         <Document
           file={filePath}
           onLoadSuccess={(pdf) => {
