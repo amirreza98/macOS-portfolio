@@ -25,7 +25,6 @@ function App() {
   return (
     <main>
       <Navbar/>
-      <LiquidBackground/>
       <Welcome/>
       <Dock/>
       <Home />
@@ -41,6 +40,7 @@ function App() {
       <Contact />
       <Photos />
 
+      <LiquidBackground/>
     </main>
   )
 }

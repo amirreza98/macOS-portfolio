@@ -68,7 +68,7 @@ export default function LiquidEther({
   colors = defaultColors,
   style = {},
   className = '',
-  autoDemo = true,
+  autoDemo = false,
   autoSpeed = 0.5,
   autoIntensity = 2.2,
   takeoverDuration = 0.25,
