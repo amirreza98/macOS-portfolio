@@ -249,9 +249,14 @@ body {
   nav time { @apply text-gray-300 }
   nav ul p { @apply text-gray-300 hover:text-white;}
   nav .nav-icon ul li{ filter: brightness(0) invert(0.8);}
+  nav img{ filter: brightness(0) invert(0.8);}
+
+  .popover-lit { @apply bg-white/15 text-white ;}
+  .popover-lit button { @apply hover:border hover:border-blue-600 hover:bg-white/5  ;}
+
 
   #window-header { background-color: #141414 !important; border-color: #2b2b2b !important; }
-  .bg-white, #finder, #safari, #terminal, #photos,#chatgpt-window, #finder .content, #safari, .blog, .popover-lit {
+  .bg-white, #finder, #safari, #terminal, #photos,#chatgpt-window, #finder .content, #safari, .blog {
     background-color: #0b0b0b !important;
     color: #ddd !important;
   }
