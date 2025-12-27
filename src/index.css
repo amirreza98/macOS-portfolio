@@ -7,7 +7,7 @@ body {
   /* Prevent horizontal scroll entirely */
   overflow-x: hidden; 
   height: 100dvh;
-  background-image: url("/images/wallpaper.png");
+  /* background-image: url("/images/wallpaper.png"); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -49,7 +49,7 @@ body {
   }
 
   nav {
-    @apply flex justify-between items-center bg-white/50 backdrop-blur-3xl p-2 px-5 select-none;
+    @apply absolute w-screen flex justify-between items-center p-2 px-5 bg-white/20 backdrop-blur-md select-none;
     div {
       @apply flex items-center max-sm:w-full max-sm:justify-between gap-5;
       &:last-child { @apply max-sm:hidden; }
@@ -62,6 +62,11 @@ body {
   }
 }
 
+.liquid-ether-container {
+  @apply relative overflow-hidden w-full h-full touch-none -z-50;
+}
+
+
 @layer components {
   .icon { @apply p-1 hover:bg-gray-300 rounded hover:cursor-default; }
   .icon-hover {
@@ -70,7 +75,7 @@ body {
   }
 
   #welcome {
-    @apply text-gray-200 flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none max-sm:px-10 overflow-clip;
+    @apply text-fuchsia-800 flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none max-sm:px-10 overflow-clip;
     .small-screen {
       @apply sm:hidden m-7 bg-red-300/20 backdrop-blur-lg p-3 rounded-md absolute top-10;
     }
@@ -228,7 +233,7 @@ body {
   }
 
   /* --- DESKTOP ICONS (HIDDEN ON MOBILE) --- */
-  #home { @apply relative z-0 max-sm:hidden;
+  #home { @apply relative z-10 max-sm:hidden;
     ul { 
       li { @apply absolute z-0 select-none flex items-center flex-col;
         img { @apply group-hover:bg-gray-950/10 p-1 rounded-md;}
@@ -240,15 +245,26 @@ body {
 
 /* --- THEME DARK OVERRIDES --- */
 .theme-dark {
-  nav { background-color: rgba(20,20,20,0.6) !important; color: #ddd !important; }
+  nav { @apply bg-gray-700/30 text-gray-300; /* semi-transparent dark + light text */}
+  nav time { @apply text-gray-300 }
+  nav ul p { @apply text-gray-300 hover:text-white;}
+  nav .nav-icon ul li{ filter: brightness(0) invert(0.8);}
+  nav img{ filter: brightness(0) invert(0.8);}
+
+  .popover-lit { @apply bg-white/15 text-white ;}
+  .popover-lit button { @apply hover:border hover:border-blue-600 hover:bg-white/5  ;}
+
+  #welcome {@apply text-blue-800;}
+
   #window-header { background-color: #141414 !important; border-color: #2b2b2b !important; }
-  .bg-white, #finder, #safari, #terminal, #photos,#chatgpt-window, #finder .content, #safari, .blog, .popover-lit {
+  .bg-white, #finder, #safari, #terminal, #photos,#chatgpt-window, #finder .content, #safari, .blog {
     background-color: #0b0b0b !important;
     color: #ddd !important;
   }
   .bg-gray-50, .sidebar { background-color: #080808 !important; border-color: #222 !important; }
   .text-gray-800, h3, p { color: #eee !important; }
   .text-gray-400, .text-gray-500 { color: #888 !important; }
+  .liquid-ether-container {background-color: #141414 ; }
 }
 
 /* --- FINAL MOBILE FIXES (SAFETY NET) --- */
