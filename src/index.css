@@ -222,10 +222,17 @@ body {
   }
 
   #window-controls {
-    @apply flex gap-2 shrink-0;
-    .close { @apply size-3 rounded-full bg-[#ff6157]; }
-    .minimize { @apply size-3 rounded-full bg-[#ffc030]; }
-    .maximize { @apply size-3 rounded-full bg-[#2acb42]; }
+    @apply flex gap-2 shrink-0 cursor-default;
+      .close,
+      .minimize,
+      .maximize {
+        @apply size-3.5 rounded-full items-center justify-center flex;
+      }
+    > div > * { @apply opacity-0 transition-normal ease-out;}
+    &:hover > div > * { @apply opacity-100;}
+    .close { @apply bg-[#ff6157] ; }
+    .minimize { @apply bg-[#ffc030]; }
+    .maximize { @apply bg-[#2acb42]; }
   }
 
   .popover-lit {

@@ -1,4 +1,5 @@
 import useWindowStore from "../store/window";
+import { X, Minus, Maximize2 } from 'lucide-react';
 
 interface WindowControlsProps {
   target: string;
@@ -11,9 +12,9 @@ const WindowControls = ({ target }: WindowControlsProps) => {
 
   return (
     <div id="window-controls">
-      <div className="close" onClick={() => closeWindow(target)} />
-      <div className="minimize" onClick={() => closeWindow(target)} />
-      <div className="maximize" />
+        <div className="close" onClick={() => closeWindow(target)}><X size={11} color="#444444" strokeWidth={3}/></div>
+        <div className="minimize" onClick={() => closeWindow(target)} ><Minus size={11} color="#444444" strokeWidth={3}/></div>
+        <div className="maximize"  ><Maximize2 size={8} color="#444444" strokeWidth={3}/></div>
     </div>
   );
 };
