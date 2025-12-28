@@ -1,6 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Georama:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 @import "tailwindcss";
 
+:root {
+  --sat: env(safe-area-inset-top);
+  --sab: env(safe-area-inset-bottom);
+}
+
+.app {
+  padding-top: var(--sat);
+  padding-bottom: var(--sab);
+}
+
 html,
 body {
   width: 100%;
