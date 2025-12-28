@@ -3,16 +3,16 @@
 
 html,
 body {
-  width: 100dvw;
+  width: 100%;
   /* Prevent horizontal scroll entirely */
   overflow-x: hidden; 
-  height: 100dvh;
+  height: 100%;
   /* background-image: url("/images/wallpaper.png"); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   overscroll-behavior: none;
-  padding: 0;
+  padding: 0 !important;
   margin: 0;
 }
 
