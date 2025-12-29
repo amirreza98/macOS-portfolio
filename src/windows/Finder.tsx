@@ -51,7 +51,7 @@ function Finder() {
   );
 
   return (
-    <div id="finderwindow" className="finder">
+    <div id="finder" className="finder">
       <div id="window-header">
         <WindowControls target="finder" />
           <button 

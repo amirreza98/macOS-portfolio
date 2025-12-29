@@ -254,12 +254,12 @@ body {
   }
 
   .finder {
-    @apply window-responsive sm:w-3xl top-20 left-20 flex flex-col overflow-hidden;
+    @apply window-responsive sm:w-3xl top-20 sm:left-60 left-1/2 -translate-x-1/30;
   }
   .mainfinder{
     @apply flex flex-col sm:flex-row;
   }
-  .sidebarfinder { @apply w-full sm:w-48 bg-gray-50 sm:py-6 py-4 border-b sm:border-r border-gray-200;
+  .sidebarfinder { @apply w-full sm:w-48 bg-gray-50 sm:py-6 border-b sm:border-r border-gray-200;
     ul { @apply flex flex-row sm:flex-col justify-center;
     li {@apply flex flex-row items-center gap-1 m-2 p-2 cursor-default text-sm rounded-xl}}
   }
