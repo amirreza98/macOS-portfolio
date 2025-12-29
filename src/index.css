@@ -50,11 +50,11 @@ body {
 
 @layer base {
   main {
-    @apply w-screen h-screen overflow-hidden relative;
+    @apply w-dvw h-dvh overflow-hidden relative;
   }
 
   nav {
-    @apply absolute w-screen flex justify-between items-center p-2 px-5 bg-white/20 backdrop-blur-md select-none;
+    @apply absolute w- flex justify-between items-center p-2 px-5 bg-white/20 backdrop-blur-md select-none;
     div {
       @apply flex items-center max-sm:w-full max-sm:justify-between gap-5;
       &:last-child { @apply max-sm:hidden; }
@@ -87,7 +87,7 @@ body {
   }
 
   #dock {
-    @apply absolute bottom-5 left-1/2 -translate-x-1/2 z-50 select-none;
+    @apply absolute bottom-[calc(env(safe-area-inset-bottom)+0.5rem)] left-1/2 -translate-x-1/2 z-50 select-none;
     @apply max-sm:bottom-2;
     .dock-container {
       @apply bg-white/20 backdrop-blur-md justify-center rounded-2xl p-1.5 flex items-end gap-1.5;
