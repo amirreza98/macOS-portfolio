@@ -4,22 +4,13 @@
 html,
 body {
   width: 100%;
-  /* Prevent horizontal scroll entirely */
   overflow-x: hidden; 
   height: 100%;
-  /* background-image: url("/images/wallpaper.png"); */
-  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   overscroll-behavior: none;
   padding: 0 !important;
   margin: 0;
-}
-
-#root {
-  min-height: 100dvh;
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
 }
 
 @theme {
@@ -54,7 +45,7 @@ body {
 
 @layer base {
   main {
-    @apply overflow-hidden relative;
+    @apply min-w-full min-h-full overflow-hidden relative;
   }
 
   nav {
