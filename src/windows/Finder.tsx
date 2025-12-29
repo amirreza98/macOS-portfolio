@@ -52,7 +52,7 @@ function Finder() {
   );
 
   return (
-    <div id="finderWindow" className="flex flex-col h-full bg-white text-gray-800">
+    <div id="finderwindow" className="finder bg-white text-gray-800">
       <div id="window-header" className="flex flex-row gap-4 px-4 py-2 border-b bg-gray-50">
         <WindowControls target="finder" />
           <button 
@@ -65,14 +65,14 @@ function Finder() {
         <h2 className="text-sm font-semibold">{activeLocation.name}</h2>
       </div>
 
-      <div className="flex flex-1 overflow-hidden">
+      <div className="overflow-hidden">
         {/* Sidebar */}
-        <div className="w-40 border-r bg-gray-50 py-4 overflow-y-auto hidden md:block">
+        <div className="sidebar bg-gray-50 py-4 overflow-y-auto">
           {renderSidebarList("Favorites", Object.values(locations))}
         </div>
 
         {/* Content Area */}
-        <div className="flex-1 h-100 p-4 overflow-y-auto" >
+        <div className="content h-100 p-4 overflow-y-auto" >
           <ul className="grid grid-cols-4 gap-4">
             {activeLocation?.children?.map((item: any) => (
               <li
