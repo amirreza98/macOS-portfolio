@@ -29,8 +29,8 @@ function Finder() {
   };
 
   const renderSidebarList = (name: string, items: any[]) => (
-    <div className="mb-4">
-      <h3 className="px-4 text-xs font-bold text-gray-400 uppercase mb-2">{name}</h3>
+    <div>
+      <h3 className=" px-3 text-xs sm:block hidden font-bold text-gray-400 uppercase mb-2">{name}</h3>
       <ul>
         {items.map((item) => (
           <li
@@ -39,8 +39,7 @@ function Finder() {
               setActiveLocation(item);
             }}
             className={clsx(
-              "flex items-center gap-2 px-4 py-1 cursor-default text-sm",
-              item.id === activeLocation?.id ? "bg-blue-500 text-white" : "hover:bg-gray-100"
+              item.id === activeLocation?.id ? "bg-blue-500 text-white" : "hover:bg-gray-200 text-black"
             )}
           >
             <img src={item.icon} className="w-4 h-4" alt="" />
@@ -52,39 +51,39 @@ function Finder() {
   );
 
   return (
-    <div id="finderwindow" className="finder bg-white text-gray-800">
-      <div id="window-header" className="flex flex-row gap-4 px-4 py-2 border-b bg-gray-50">
+    <div id="finderwindow" className="finder">
+      <div id="window-header">
         <WindowControls target="finder" />
           <button 
             onClick={goBack} 
             disabled={history.length === 0}
-            className="p-1 hover:bg-gray-300 hover:shadow-2xl drop-shadow-black rounded disabled:opacity-30"
+            className="p-1 hover:bg-gray-300 hover:shadow-2xl drop-shadow-black rounded disabled:opacity-20"
           >
             <ChevronLeft size={18} />
           </button>
         <h2 className="text-sm font-semibold">{activeLocation.name}</h2>
       </div>
 
-      <div className="overflow-hidden">
+      <div className="mainfinder">
         {/* Sidebar */}
-        <div className="sidebar bg-gray-50 py-4 overflow-y-auto">
+        <div className="sidebarfinder">
           {renderSidebarList("Favorites", Object.values(locations))}
         </div>
 
         {/* Content Area */}
-        <div className="content h-100 p-4 overflow-y-auto" >
-          <ul className="grid grid-cols-4 gap-4">
+        <div className="content" >
+          <ul className="grid grid-cols-4 gap-2">
             {activeLocation?.children?.map((item: any) => (
               <li
                 key={item.id}
-                className="flex flex-col items-center gap-1 p-2 rounded cursor-pointer group"
+                className="flex flex-col items-center gap-1 py-2 rounded cursor-pointer group"
                 onDoubleClick={() => openItem(item)}
                 onClick={(e) => {
                   e.stopPropagation();
                     openItem(item);
                 }}
               >
-                <img src={item.icon} alt={item.name} className="w-12 h-12 object-contain" />
+                <img src={item.icon} alt={item.name} className="w-16 h-16 object-contain" />
                 <p className="text-xs text-center break-all line-clamp-2">{item.name}</p>
               </li>
             ))}
