@@ -138,7 +138,7 @@ body {
   }
 
   #chatgpt-window {
-    @apply window-responsive w-[50rem];
+    @apply window-responsive bg-gray-100 w-[50rem];
 
     h2 {
       @apply font-bold text-sm text-center w-full;
