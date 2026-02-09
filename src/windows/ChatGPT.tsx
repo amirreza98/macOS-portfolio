@@ -29,7 +29,7 @@ function ChatGPT() {
 
     try {
       const res = await fetch(
-          "https://develops-sally-supplied-our.trycloudflare.com/api/ask",
+          "https://wool-absorption-adventures-fixes.trycloudflare.com/api/ask",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
