@@ -14,65 +14,66 @@ function ChatGPT() {
 
   const MAX_TOKENS = 3;
 
-async function handleSend(e: React.FormEvent) {
-  e.preventDefault();
-  if (!input.trim() || tokensUsed >= MAX_TOKENS || isWaiting) return;
+  async function handleSend(e: React.FormEvent) {
+    e.preventDefault();
+    if (!input.trim() || tokensUsed >= MAX_TOKENS || isWaiting) return;
 
-  const userMessage: Message = {
-    role: "user",
-    content: input.trim(),
-  };
+    const userMessage: Message = {
+      role: "user",
+      content: input.trim(),
+    };
 
-  setMessages((prev) => [...prev, userMessage]);
-  setInput("");
-  setIsWaiting(true);
+    setMessages((prev) => [...prev, userMessage]);
+    setInput("");
+    setIsWaiting(true);
 
-  try {
-    const res = await fetch(
-      "https://macos-portfolio-3exg.onrender.com/api/ask",
-      // "http://localhost:3000/api/ask",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: userMessage.content }),
+    try {
+      const res = await fetch(
+           "http://98.90.203.190:3000",
+        // "https://macos-portfolio-3exg.onrender.com/api/ask",
+        // "http://localhost:3000/api/ask",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question: userMessage.content }),
+        }
+      );
+
+      const data = await res.json();
+
+      // Check if response is not OK (includes 429 rate limit)
+      if (!res.ok) {
+        setMessages((prev) => [
+          ...prev,
+          {
+            role: "assistant",
+            content: data.error || "Something went wrong. Please try again later.",
+          },
+        ]);
+        setIsWaiting(false);
+        return; // Stop here, don't increment tokens
       }
-    );
 
-    const data = await res.json();
+      // Success case
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: data.answer },
+      ]);
+      setIsWaiting(false);
+      setTokensUsed((prev) => prev + 1);
 
-    // Check if response is not OK (includes 429 rate limit)
-    if (!res.ok) {
+    } catch (err) {
+      console.error(err);
       setMessages((prev) => [
         ...prev,
         {
           role: "assistant",
-          content: data.error || "Something went wrong. Please try again later.",
+          content: "Network error. Please check your connection and try again.",
         },
       ]);
       setIsWaiting(false);
-      return; // Stop here, don't increment tokens
     }
-
-    // Success case
-    setMessages((prev) => [
-      ...prev,
-      { role: "assistant", content: data.answer },
-    ]);
-    setIsWaiting(false);
-    setTokensUsed((prev) => prev + 1);
-
-  } catch (err) {
-    console.error(err);
-    setMessages((prev) => [
-      ...prev,
-      {
-        role: "assistant",
-        content: "Network error. Please check your connection and try again.",
-      },
-    ]);
-    setIsWaiting(false);
   }
-}
 
   return (
     <div id="chatgpt-window">
