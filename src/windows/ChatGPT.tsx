@@ -29,8 +29,7 @@ function ChatGPT() {
 
     try {
       const res = await fetch(
-        "https://develops-sally-supplied-our.trycloudflare.com/api/ask",
-          //  "http://98.90.203.190:3000/api/ask",
+           "/api/ask",
         // "https://macos-portfolio-3exg.onrender.com/api/ask",
         // "http://localhost:3000/api/ask",
         {
