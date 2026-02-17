@@ -29,7 +29,7 @@ function ChatGPT() {
 
     try {
       const res = await fetch(
-          "https://macos-portfolio-3exg.onrender.com/api/ask",
+          "/api/ask",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
