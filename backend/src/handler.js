@@ -12,7 +12,7 @@ const requests = new Map();
 function isRateLimited(ip) {
   const now = Date.now();
   const windowMs = 60 * 60 * 1000;
-  const max = 3;
+  const max = 20;
 
   const recent = (requests.get(ip) || []).filter(t => now - t < windowMs);
   recent.push(now);
