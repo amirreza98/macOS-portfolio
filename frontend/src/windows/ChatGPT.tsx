@@ -28,9 +28,7 @@ function ChatGPT() {
     setIsWaiting(true);
 
     try {
-      const res = await fetch(
-          "/api/ask",
-        {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/ask`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ question: userMessage.content }),
@@ -77,7 +75,7 @@ function ChatGPT() {
     <div id="chatgpt-window">
       <div id="window-header">
         <WindowControls target="chatgpt" />
-        <h2>Chat GPT</h2>
+        <h2>AI assistant</h2>
       </div>
 
       <div className="chatgpt-body">
