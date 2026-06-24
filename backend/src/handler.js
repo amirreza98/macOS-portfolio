@@ -145,7 +145,6 @@ if the user asked a question you do not have any idia about it, just make someth
           content: question
         }
       ],
-      temperature: 0.7,
       max_completion_tokens: 250,
     });
 
