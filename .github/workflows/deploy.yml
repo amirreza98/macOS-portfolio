@@ -57,6 +57,17 @@ jobs:
           terraform apply -auto-approve \
             -var="openai_api_key=${{ secrets.OPENAI_API_KEY }}"
 
+      - name: Force Lambda to use new image
+        run: |
+          aws lambda update-function-code \
+            --function-name portfolio-ask \
+            --image-uri 629542569012.dkr.ecr.us-east-1.amazonaws.com/portfolio-lambda:latest \
+            --region us-east-1
+          
+          aws lambda wait function-updated \
+            --function-name portfolio-ask \
+            --region us-east-1
+
       - name: Print API URL
         working-directory: terraform
         run: terraform output api_url
