@@ -146,7 +146,7 @@ if the user asked a question you do not have any idia about it, just make someth
         }
       ],
       temperature: 0.7,
-      max_tokens: 250,
+      max_completion_tokens: 250,
     });
 
     const answer = response.choices?.[0]?.message?.content;
