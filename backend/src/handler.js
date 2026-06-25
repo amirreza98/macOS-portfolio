@@ -28,8 +28,7 @@ async function askLLM(question) {
       messages: [
         {
           role: "system",
-          content: 
-          `
+          content: `
 You are an AI assistant on AmirReza Azemati's portfolio website. Answer questions professionally and concisely about Amir's background, skills, and experience.
 
 ABOUT AMIR:
@@ -136,9 +135,8 @@ LINKS:
 - Portfolio: azemati.netlify.app
 
 Answer questions professionally and concisely. Highlight relevant technical skills and experience. Keep responses brief and focused.
-if the user asked a question you do not have any idia about it, just make something up with positive impresian but not too much
+If the user asks a question you have no idea about, make something up with a positive impression but not too much.
 `
-
         },
         {
           role: "user",
@@ -167,12 +165,12 @@ export const handler = async (event) => {
     'Access-Control-Allow-Headers': 'Content-Type',
   };
 
-  // handle CORS preflight
+  // 1. handle CORS preflight
   if (event.requestContext?.http?.method === 'OPTIONS') {
     return { statusCode: 200, headers, body: '' };
   }
 
-  // rate limit by IP
+  // 2. rate limit by IP
   const ip = event.requestContext?.http?.sourceIp || 'unknown';
   if (isRateLimited(ip)) {
     return {
@@ -182,7 +180,7 @@ export const handler = async (event) => {
     };
   }
 
-  // parse body
+  // 3. parse body
   let body;
   try {
     body = JSON.parse(event.body || '{}');
@@ -194,7 +192,15 @@ export const handler = async (event) => {
     };
   }
 
+  // 4. destructure question
   const { question } = body;
+
+  // 5. warmup ping — return immediately, skip OpenAI call
+  if (question === '__warmup__') {
+    return { statusCode: 200, headers, body: JSON.stringify({ answer: '' }) };
+  }
+
+  // 6. validate question
   if (!question) {
     return {
       statusCode: 400,
@@ -203,6 +209,7 @@ export const handler = async (event) => {
     };
   }
 
+  // 7. call OpenAI
   const answer = await askLLM(question);
   return {
     statusCode: 200,

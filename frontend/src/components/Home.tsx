@@ -1,6 +1,7 @@
 import { locations } from "../constants"
 import { useGSAP } from "@gsap/react"
 import { Draggable } from "gsap/all"
+import { useEffect } from "react"
 import useLocationStore from "../store/location"
 import useWindowStore from "../store/window"
 import clsx from "clsx"
@@ -16,19 +17,32 @@ interface Project {
 }
 
 function Home() {
+
+    
+    
     const { setActiveLocation } = useLocationStore() as {
         setActiveLocation: (project: Project) => void
     }
-
+    
     const { openWindow } = useWindowStore() as {
         openWindow: (id: string) => void
     }
-
+    
     const handleOpenProjectFinder = (project: Project) => {
         setActiveLocation(project)
         openWindow("finder")
     }
+    
+    useEffect(() => {
+    // wake up Lambda silently on page load
+    fetch(`${import.meta.env.VITE_API_URL}/api/ask`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question: '__warmup__' })
+    }).catch(() => {}); // silently ignore errors
+    }, []);
 
+    
     useGSAP(() => {
         Draggable.create(".folder")
     }, [])
