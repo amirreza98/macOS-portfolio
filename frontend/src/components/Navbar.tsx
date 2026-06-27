@@ -1,4 +1,5 @@
 import dayjs from "dayjs"
+import { useState, useEffect } from "react"
 import { navLinks, navIcons} from "../constants"
 import useWindowStore from "../store/window"
 import IconPopover from "./IconPopover"
@@ -19,6 +20,12 @@ export default function Navbar() {
   const { openWindow } = useWindowStore() as {
     openWindow: (id: string) => void
   }
+
+  const [now, setNow] = useState(dayjs())
+  useEffect(() => {
+    const id = setInterval(() => setNow(dayjs()), 30_000)
+    return () => clearInterval(id)
+  }, [])
 
 
   return (
@@ -68,7 +75,7 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <time>{dayjs().format("ddd MMM D   h:mm A")}</time>
+        <time>{now.format("ddd MMM D   h:mm A")}</time>
       </div>
     </nav>
   )

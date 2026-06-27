@@ -160,13 +160,135 @@ export const WORK_LOCATION: FinderFolder = {
   kind: "folder",
   windowPosition: "top-[10vh] left-20",
   children: [
-    // Project 1
+    // Project 1 — Classroom Management SaaS (new)
     {
       id: 1,
-      name: "SolarSense",
+      name: "Classroom SaaS",
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-5 left-0",
+      windowPosition: "top-[5vh] left-10",
+      children: [
+        {
+          id: 1,
+          name: "ClassroomSaaS.txt",
+          icon: "/images/txt.png",
+          kind: "file",
+          fileType: "txt",
+          position: "top-5 left-10",
+          description: [
+            "Stack: React · TypeScript · NestJS · Spring Boot · Kafka · PostgreSQL · MongoDB · Redis · Docker · AWS EC2/S3 · Prometheus · Grafana",
+            "Production microservices platform with 8 containerized services built on Spring Boot and Spring Cloud Gateway (ES256 JWT validation via JWKS, Redis fixed-window rate limiting per role).",
+            "Services: Express auth-service (better-auth, GitHub OAuth, Arcjet bot detection), Spring Boot academic core (Stripe payments, Flyway migrations, Kafka event publishing), NestJS voice service (OpenAI Realtime API, PDF-to-voice via AWS S3), Spring Boot analytics (Kafka consumer), and a Yjs CRDT collaboration service (STOMP/SockJS, Redis pub/sub for multi-instance broadcast).",
+            "Deployed on AWS EC2 with Nginx reverse proxy, SSL, and selective CI/CD via GitHub Actions (paths-filter rebuilds only changed services, tree-hash image caching).",
+            "Full observability via Prometheus scraping all services every 15 s with auto-provisioned Grafana dashboards.",
+          ],
+        },
+        {
+          id: 2,
+          name: "classroom.com",
+          icon: "/images/safari.png",
+          kind: "file",
+          fileType: "url",
+          href: "https://classroom-nine-omega.vercel.app",
+          position: "top-5 right-10",
+        },
+        {
+          id: 3,
+          name: "github.com",
+          icon: "/images/git.png",
+          kind: "file",
+          fileType: "fig",
+          href: "https://github.com/amirreza98/classroom",
+          position: "top-20 right-10",
+        },
+      ],
+    },
+    // Project 2 — Textile Defect Detection (new)
+    {
+      id: 2,
+      name: "Textile Defect AI",
+      icon: "/images/folder.png",
+      kind: "folder",
+      position: "top-5 left-35",
+      windowPosition: "top-[10vh] left-20",
+      children: [
+        {
+          id: 1,
+          name: "TextileDefect.txt",
+          icon: "/images/txt.png",
+          kind: "file",
+          fileType: "txt",
+          position: "top-5 left-10",
+          description: [
+            "Stack: Python · YOLOv8 · AWS Lambda · ECR · API Gateway · S3 · Docker · GitHub Actions",
+            "Real-time AI quality control system for textile manufacturing.",
+            "Trained a YOLOv8s model on 1,900+ labeled fabric defect images achieving 4-class defect classification (stains, tears, loose threads, general defects).",
+            "Deployed inference as a containerized Lambda function via Docker + ECR with automated CI/CD through GitHub Actions.",
+            "Integrated API Gateway as the public REST endpoint and S3 for annotated result storage.",
+            "Built a dashboard consuming the serverless API, displaying real-time bounding boxes and confidence scores.",
+          ],
+        },
+        {
+          id: 2,
+          name: "textile-dashboard.com",
+          icon: "/images/safari.png",
+          kind: "file",
+          fileType: "url",
+          href: "https://textile-dashboard-nine.vercel.app",
+          position: "top-5 right-10",
+        },
+        {
+          id: 3,
+          name: "github.com",
+          icon: "/images/git.png",
+          kind: "file",
+          fileType: "fig",
+          href: "https://github.com/amirreza98/textile-defect",
+          position: "top-20 right-10",
+        },
+      ],
+    },
+    // Project 3 — macOS Portfolio (new)
+    {
+      id: 3,
+      name: "macOS Portfolio",
+      icon: "/images/folder.png",
+      kind: "folder",
+      position: "top-5 left-70",
+      windowPosition: "top-[15vh] left-20",
+      children: [
+        {
+          id: 1,
+          name: "macOS Portfolio.txt",
+          icon: "/images/txt.png",
+          kind: "file",
+          fileType: "txt",
+          position: "top-5 left-10",
+          description: [
+            "Stack: TypeScript · React · Node.js · Vite · Zustand · GSAP · AWS Lambda · API Gateway · Terraform",
+            "Interactive macOS-style portfolio with an integrated GPT-powered AI assistant, real-time chat via REST API, and GSAP-driven animations.",
+            "Migrated backend from EC2 to serverless AWS Lambda + API Gateway, with infrastructure managed via Terraform and automated deployments through GitHub Actions CI/CD.",
+          ],
+        },
+        {
+          id: 2,
+          name: "github.com",
+          icon: "/images/git.png",
+          kind: "file",
+          fileType: "fig",
+          href: "https://github.com/amirreza98/macos_portfolio",
+          position: "top-5 right-10",
+        },
+      ],
+    },
+    // Project 4 — SolarSense
+    {
+      id: 4,
+      name: "SolarSense",
+      icon: "/images/folder.png",
+      kind: "folder",
+      position: "top-5 left-105",
       windowPosition: "top-[5vh] left-10",
       children: [
         {
@@ -200,13 +322,13 @@ export const WORK_LOCATION: FinderFolder = {
         },
       ],
     },
-    // Project 2
+    // Project 5 — CISpace Platform
     {
-      id: 2,
+      id: 5,
       name: "CISpace Platform",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "top-5 left-35",
+      position: "top-35 left-0",
       windowPosition: "top-[20vh] left-7",
       children: [
         {
@@ -285,13 +407,13 @@ export const WORK_LOCATION: FinderFolder = {
         },
       ],
     },
-    // Project 3
+    // Project 6 — T-shirt Customizer (updated description)
     {
-      id: 3,
+      id: 6,
       name: "t-shirt-customizer",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "top-5 left-70",
+      position: "top-35 left-35",
       windowPosition: "top-[33vh] left-7",
       children: [
         {
@@ -302,7 +424,9 @@ export const WORK_LOCATION: FinderFolder = {
           fileType: "txt",
           position: "top-5 left-10",
           description: [
-            "Digital twin fashion platform, a 3D model with real-time color & pattern customization.",
+            "Stack: React · Three.js · WebGL · Node.js · JWT · PostgreSQL",
+            "3D product visualization platform with real-time texture rendering, camera controls, and GPU-optimized mesh rendering.",
+            "Implemented user authentication, persistent design storage, and performance optimization for smooth 60 fps rendering across devices.",
           ],
         },
         {
@@ -361,13 +485,13 @@ export const WORK_LOCATION: FinderFolder = {
         },
       ],
     },
-    // Project 4
+    // Project 7 — Real Estate (updated description)
     {
-      id: 4,
+      id: 7,
       name: "realtor Platform",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "top-5 left-105",
+      position: "top-35 left-70",
       windowPosition: "top-[33vh] left-7",
       children: [
         {
@@ -378,7 +502,8 @@ export const WORK_LOCATION: FinderFolder = {
           fileType: "txt",
           position: "top-5 left-10",
           description: [
-            "Real estate listing platform (React, Node.js).",
+            "Stack: Next.js · TypeScript · Tailwind CSS · REST API",
+            "Property listing platform with advanced filtering, search, and server-side rendering for SEO optimization.",
           ],
         },
         {
@@ -428,13 +553,13 @@ export const WORK_LOCATION: FinderFolder = {
         },
       ],
     },
-    // Project 5
+    // Project 8 — old-portfolio
     {
-      id: 5,
+      id: 8,
       name: "old-portfolio",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "top-35 left-0",
+      position: "top-35 left-105",
       windowPosition: "top-[33vh] left-7",
       children: [
         {
@@ -494,7 +619,7 @@ export const WORK_LOCATION: FinderFolder = {
           imageUrl: "/images/old-portfolio4.png",
         },
         {
-          id: 4,
+          id: 7,
           name: "Preview 5.png",
           icon: "/images/image.png",
           kind: "file",
@@ -503,7 +628,7 @@ export const WORK_LOCATION: FinderFolder = {
           imageUrl: "/images/old-portfolio5.png",
         },
         {
-          id: 4,
+          id: 8,
           name: "Preview 6.png",
           icon: "/images/image.png",
           kind: "file",
@@ -512,7 +637,7 @@ export const WORK_LOCATION: FinderFolder = {
           imageUrl: "/images/old-portfolio6.png",
         },
         {
-          id: 5,
+          id: 9,
           name: "github.com",
           icon: "/images/git.png",
           kind: "file",
@@ -522,13 +647,13 @@ export const WORK_LOCATION: FinderFolder = {
         },
       ],
     },
-    // Project 6
+    // Project 9 — OpenMemory
     {
-      id: 6,
+      id: 9,
       name: "OpenMemory",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "top-35 left-35",
+      position: "top-65 left-0",
       windowPosition: "top-[33vh] left-7",
       children: [
         {
@@ -539,7 +664,7 @@ export const WORK_LOCATION: FinderFolder = {
           fileType: "txt",
           position: "top-5 left-10",
           description: [
-            "platform for sharing memories and photos.",
+            "Platform for sharing memories and photos.",
           ],
         },
         {
@@ -560,7 +685,6 @@ export const WORK_LOCATION: FinderFolder = {
           position: "top-52 right-50",
           imageUrl: "/images/openmemory.png",
         },
-
         {
           id: 4,
           name: "Preview 2.png",
@@ -581,13 +705,13 @@ export const WORK_LOCATION: FinderFolder = {
         },
       ],
     },
-    // Project 7
+    // Project 10 — wishlist-extention
     {
-      id: 7,
+      id: 10,
       name: "wishlist-extention",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "top-35 left-70",
+      position: "top-65 left-35",
       windowPosition: "top-[33vh] left-7",
       children: [
         {
@@ -598,7 +722,7 @@ export const WORK_LOCATION: FinderFolder = {
           fileType: "txt",
           position: "top-35 left-90",
           description: [
-            "A chrome extension for saving products from e-commerce sites to a wishlist. and viewing them later. also you can categorize them.",
+            "A chrome extension for saving products from e-commerce sites to a wishlist and viewing them later. Products can be categorized.",
           ],
         },
         {
@@ -612,13 +736,13 @@ export const WORK_LOCATION: FinderFolder = {
         },
       ],
     },
-    // Project 8
+    // Project 11 — MemoryGame
     {
-      id: 8,
+      id: 11,
       name: "MemoryGame",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "top-35 left-105",
+      position: "top-65 left-70",
       windowPosition: "top-[33vh] left-7",
       children: [
         {
@@ -629,7 +753,7 @@ export const WORK_LOCATION: FinderFolder = {
           fileType: "txt",
           position: "top-5 left-10",
           description: [
-            "play a classic memory card game to improve your concentration and memory skills.",
+            "Play a classic memory card game to improve your concentration and memory skills.",
           ],
         },
         {
@@ -661,7 +785,7 @@ export const WORK_LOCATION: FinderFolder = {
         },
         {
           id: 5,
-          name: "Design.fig",
+          name: "github.com",
           icon: "/images/git.png",
           kind: "file",
           fileType: "fig",
@@ -670,18 +794,18 @@ export const WORK_LOCATION: FinderFolder = {
         },
       ],
     },
-    // Project 9
+    // Project 12 — architectSytileTimline
     {
-      id: 9,
+      id: 12,
       name: "architectSytileTimline",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "top-65 left-0",
+      position: "top-65 left-105",
       windowPosition: "top-[33vh] left-7",
       children: [
         {
           id: 1,
-          name: "MemoryGame Project.txt",
+          name: "architectSytileTimline.txt",
           icon: "/images/txt.png",
           kind: "file",
           fileType: "txt",
@@ -843,7 +967,7 @@ export const RESUME_LOCATION = {
         },
         {
           id: 8,
-          name: "React.pdf",
+          name: "React2.pdf",
           icon: "/images/pdf.png",
           path: "/files/Certificates/React2.pdf",
           kind: "file",
@@ -851,7 +975,7 @@ export const RESUME_LOCATION = {
         },
         {
           id: 9,
-          name: "React.pdf",
+          name: "React3.pdf",
           icon: "/images/pdf.png",
           path: "/files/Certificates/React3.pdf",
           kind: "file",
@@ -859,7 +983,7 @@ export const RESUME_LOCATION = {
         },
         {
           id: 10,
-          name: "Docker.pdf",
+          name: "React4.pdf",
           icon: "/images/pdf.png",
           path: "/files/Certificates/React4.pdf",
           kind: "file",
@@ -867,7 +991,7 @@ export const RESUME_LOCATION = {
         },
         {
           id: 11,
-          name: "React.pdf",
+          name: "ReactHooks.pdf",
           icon: "/images/pdf.png",
           path: "/files/Certificates/ReactHooks.pdf",
           kind: "file",

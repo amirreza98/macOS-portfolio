@@ -29,7 +29,7 @@ function Contact() {
           Got an idea? A bug to squash? Or just want talk tech? I'm in.
         </p>
         <p>
-          Email: <a className="text-blue-600">amirreza.azemati@gmail.com</a>
+          Email: <a href="mailto:amirreza.azemati@gmail.com" className="text-blue-600">amirreza.azemati@gmail.com</a>
         </p>
 
         <ul>

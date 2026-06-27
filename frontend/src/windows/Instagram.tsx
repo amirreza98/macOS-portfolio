@@ -16,7 +16,7 @@ const Instagram = () => {
       <iframe
         src={url}
         style={{
-          width: "100vh",
+          width: "100%",
           height: "85vh",
           border: "1px solid #ccc",
           borderRadius: "8px",

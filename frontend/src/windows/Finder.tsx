@@ -39,7 +39,9 @@ function Finder() {
               setActiveLocation(item);
             }}
             className={clsx(
-              item.id === activeLocation?.id ? "bg-blue-500 text-white" : "hover:bg-gray-200 text-black"
+              item.id === activeLocation?.id && (activeLocation as any)?.type !== undefined
+                ? "bg-blue-500 text-white"
+                : "hover:bg-gray-200 text-black"
             )}
           >
             <img src={item.icon} className="w-4 h-4" alt="" />
@@ -77,10 +79,9 @@ function Finder() {
               <li
                 key={item.id}
                 className="flex flex-col items-center gap-1 py-2 rounded cursor-pointer group"
-                onDoubleClick={() => openItem(item)}
                 onClick={(e) => {
                   e.stopPropagation();
-                    openItem(item);
+                  openItem(item);
                 }}
               >
                 <img src={item.icon} alt={item.name} className="w-16 h-16 object-contain" />
