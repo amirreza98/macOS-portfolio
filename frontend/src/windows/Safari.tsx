@@ -1,45 +1,43 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import WindowWrapper from "../hoc/WindowWrapper";
 import WindowControls from "../components/WindowControls";
 
 const Safari = () => {
-  // const [input, _setInput] = useState<string>("");
-  const [url, _setUrl] = useState<string>("https://www.wikipedia.org");
+  const [url] = useState<string>("https://en.m.wikipedia.org");
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [iframeWidth, setIframeWidth] = useState(0);
 
-  // function handleSubmit(e: React.FormEvent) {
-  //   e.preventDefault();
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
 
-  //   const text = input.trim();
-  //   if (!text) return;
+    const observer = new ResizeObserver((entries) => {
+      const width = entries[0].contentRect.width;
+      console.log("observed width:", width);
+      setIframeWidth(width);
+    });
 
-  //   if (text.startsWith("https://www.wikipedia.org")) {
-  //     setUrl(text);
-  //     return;
-  //   }
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
-  //   const wikiURL = `https://www.wikipedia.org/wiki/${encodeURIComponent(text)}`;
-  //   setUrl(wikiURL);
-  // }
-
-  return (
-    <>
-      <div id="window-header">
-        <WindowControls target="safari" />
-        <h2>Safari</h2>
-      </div>
-
-      <iframe
-        src={url}
-        style={{
-          width: "100%",
-          height: "75vh",
-          border: "1px solid #ccc",
-          borderRadius: "8px",
-        }}
-        title="Safari Browser"
-      />
-    </>
-  );
+return (
+  <div id="safari-inner" ref={containerRef} className="w-full">
+    <div id="window-header">
+      <WindowControls target="safari" />
+      <h2>Safari</h2>
+    </div>
+    <iframe
+      src={url}
+      style={{
+        width: iframeWidth || "100%",
+        height: "75vh",
+        display: "block",
+      }}
+      title="Safari Browser"
+    />
+    </div>
+);
 };
 
 const SafariWindow = WindowWrapper(Safari, "safari");
