@@ -157,6 +157,8 @@ body {
         white-space: pre-wrap;
         word-break: normal;
         overflow-wrap: normal;
+        text-align: justify;
+
 
       &.user {
         @apply bg-gray-300 text-right;
