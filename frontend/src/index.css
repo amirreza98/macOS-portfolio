@@ -155,8 +155,8 @@ body {
     .chat-bubble {
       @apply relative rounded-xl m-4 p-4;
       white-space: pre-wrap;
-      word-break: keep-all;
-      overflow-wrap: anywhere;
+      word-break: normal;
+      overflow-wrap: break-word;
 
       &.user {
         @apply bg-gray-300 text-right;

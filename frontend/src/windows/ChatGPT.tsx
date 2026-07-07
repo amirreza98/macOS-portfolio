@@ -51,9 +51,17 @@ function ChatGPT() {
       }
 
       // Success case
+      const answer =
+        typeof data.answer === "string"
+          ? data.answer.replace(/undefined\s*$/i, "").trim()
+          : "";
+
       setMessages((prev) => [
         ...prev,
-        { role: "assistant", content: data.answer },
+        {
+          role: "assistant",
+          content: answer || "Something went wrong. Please try again later.",
+        },
       ]);
       setIsWaiting(false);
       setTokensUsed((prev) => prev + 1);

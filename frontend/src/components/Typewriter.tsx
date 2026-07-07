@@ -13,7 +13,7 @@ export default function Typewriter({ text }: TypewriterProps) {
 
     const interval = setInterval(() => {
       if (i < text.length) {
-        setDisplayedText((prev) => prev + (text[i] === " " ? "\u00A0" : text[i]));
+        setDisplayedText((prev) => prev + text[i]);
         i++;
       } else {
         clearInterval(interval);
