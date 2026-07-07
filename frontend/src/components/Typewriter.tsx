@@ -5,23 +5,22 @@ interface TypewriterProps {
 }
 
 export default function Typewriter({ text }: TypewriterProps) {
-  const [displayedText, setDisplayedText] = useState("");
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    setDisplayedText("");
-    let i = 0;
-
+    setCount(0);
     const interval = setInterval(() => {
-      if (i < text.length) {
-        setDisplayedText((prev) => prev + text[i]);
-        i++;
-      } else {
-        clearInterval(interval);
-      }
+      setCount((c) => {
+        if (c >= text.length) {
+          clearInterval(interval);
+          return c;
+        }
+        return c + 1;
+      });
     }, 30);
 
     return () => clearInterval(interval);
   }, [text]);
 
-  return <span>{displayedText}</span>;
+  return <span>{text.slice(0, count)}</span>;
 }

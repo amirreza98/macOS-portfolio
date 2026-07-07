@@ -13,6 +13,8 @@ dist-ssr
 *.local
 .env
 
+LinkedIn
+
 portfolio.pem
 my-ec2-key.pem
 
